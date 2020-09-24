@@ -4,9 +4,9 @@ const port = 3004;
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+  res.send('Hello World!');
+});
 
 app.listen(port, () => {
-  console.log(`Bluefin listening at http://localhost:${port}`)
-})
+  console.log(`Bluefin listening at http://localhost:${port}`);
+});
