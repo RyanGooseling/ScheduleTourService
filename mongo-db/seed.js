@@ -78,6 +78,62 @@ const sampleTours = [
     timeWindow: '17:00 - 17:30',
     walkthrough: "Video",
     booking: true
+  },
+  {
+    house_id: 'Pearl Street',
+    date: '10/9/2020',
+    timeWindow: '16:30 - 17:00',
+    walkthrough: "Video",
+    booking: true
+  },
+  {
+    house_id: 'Pearl Street',
+    date: '10/10/2020',
+    timeWindow: '10:00 - 10:30',
+    walkthrough: "In-person",
+    booking: true
+  },
+  {
+    house_id: 'Pearl Street',
+    date: '10/10/2020',
+    timeWindow: '10:30 - 11:00',
+    walkthrough: "In-person",
+    booking: true
+  },
+  {
+    house_id: 'Pearl Street',
+    date: '10/10/2020',
+    timeWindow: '12:30 - 13:00',
+    walkthrough: "In-person",
+    booking: true
+  },
+  {
+    house_id: 'Pearl Street',
+    date: '10/10/2020',
+    timeWindow: '16:30 - 17:00',
+    walkthrough: "In-person",
+    booking: true
+  },
+  {
+    house_id: 'Pearl Street',
+    date: '10/11/2020',
+    timeWindow: '10:00 - 10:30',
+    walkthrough: "In-person",
+    booking: true
+  },
+  {
+    house_id: 'Pearl Street',
+    date: '10/11/2020',
+    timeWindow: '11:00 - 11:30',
+    walkthrough: "In-person",
+    booking: true
+  },
+  {
+    house_id: 'Pearl Street',
+    date: '10/11/2020',
+    timeWindow: '13:30 - 14:00',
+    walkthrough: "In-person",
+    booking: true
   }
 ];
 
