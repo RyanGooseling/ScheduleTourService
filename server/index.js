@@ -3,6 +3,7 @@ const app = express();
 const port = 3004;
 
 // initialize express static file path
+// what about requiring "path"
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
