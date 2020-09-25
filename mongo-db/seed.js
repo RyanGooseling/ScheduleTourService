@@ -16,11 +16,11 @@ const sampleTourRand = function() {
   const walkRand = Math.floor(Math.random() * walkthroughs.length);
 
   const singleSample = {
-    houseID: houses[houseRand],
+    houseId: houses[houseRand],
     date: dates[dateRand],
     timeWindow: timeWindows[timeRand],
     walthrough: walkthroughs[walkRand],
-    booked: true
+    booking: true
   };
   return singleSample;
 };
