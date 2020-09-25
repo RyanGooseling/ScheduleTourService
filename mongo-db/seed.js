@@ -97,7 +97,7 @@ const sampleTours = [
     house_id: 'Pearl Street',
     date: '10/10/2020',
     timeWindow: '10:30 - 11:00',
-    walkthrough: "In-person",
+    walkthrough: "Video",
     booking: true
   },
   {
@@ -111,7 +111,7 @@ const sampleTours = [
     house_id: 'Pearl Street',
     date: '10/10/2020',
     timeWindow: '16:30 - 17:00',
-    walkthrough: "In-person",
+    walkthrough: "Video",
     booking: true
   },
   {
@@ -132,6 +132,13 @@ const sampleTours = [
     house_id: 'Pearl Street',
     date: '10/11/2020',
     timeWindow: '13:30 - 14:00',
+    walkthrough: "Video",
+    booking: true
+  },
+  {
+    house_id: 'Pearl Street',
+    date: '10/11/2020',
+    timeWindow: '14:30 - 15:00',
     walkthrough: "In-person",
     booking: true
   }
