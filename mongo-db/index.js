@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://localhost/bluefin';
+const mongoUri = 'mongodb://localhost/bluefin-scheduletour';
 
 const db = mongoose.connect(mongoUri);
 
