@@ -6,7 +6,7 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "jest" : {
+  "jest": {
     "verbose": true
   },
   "scripts": {
@@ -28,10 +28,12 @@
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
-    "jest": "^26.4.2"
+    "jest": "^26.4.2",
+    "webpack-cli": "^3.3.12"
   },
   "version": "1.0.0",
   "main": "./server/index.js",
