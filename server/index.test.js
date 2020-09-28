@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 const axios = require('axios');
 const server = require('./index.js');
 
