@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 import DateCarousel from './components/DateCarousel.jsx';
+import Schedule from './components/Schedule.jsx';
 
-class App extends React.Component {
+class Scheduler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,4 +43,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<Scheduler/>, document.getElementById('scheduler'));
