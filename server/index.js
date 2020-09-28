@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // what about requiring "path"
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(__dirname + '/../client'));
 
 app.get('/house', (req, res) => {
   debugger;

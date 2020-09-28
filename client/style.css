@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Francois+One|PT+Serif:400,400i,700,700i');
+
+body {
+  font-family: 'PT Serif', sans-serif;
+  margin: 0px
+}
+
+.carouselButtons {
+  display: inline-block;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 2px 2px 2px 2px
+}
