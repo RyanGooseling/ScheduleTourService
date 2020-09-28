@@ -12,8 +12,10 @@ afterAll(() => {
   server.close();
 });
 
-test('endpoint returns Hello World!', async () => {
-  const { data, status}  = await api.get('/');
+test('endpoint returns Hello World!', () => {
+  const {data, status} = api.get('/');
+  axios
+
   expect(status).toBe(200);
   expect(data).toEqual('Hello World!');
 });

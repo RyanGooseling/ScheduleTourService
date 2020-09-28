@@ -19,4 +19,4 @@ const start = () => (server = app.listen(port, () => {
 }));
 const close = server ? server.close : () => {};
 
-module.exports = { start, close};
+module.exports = {start, close};
