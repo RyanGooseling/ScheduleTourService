@@ -13,10 +13,6 @@ app.get('/', (req, res) => {
 
 
 
-let server;
-const start = () => (server = app.listen(port, () => {
+app.listen(port, () => {
   console.log(`Bluefin listening at http://localhost:${port}`);
-}));
-const close = server ? server.close : () => {};
-
-module.exports = {start, close};
+});

@@ -1,21 +1,10 @@
-const axios = require('axios');
-const server = require('./index.js');
-
-const api = axios.create({ baseURL: 'http://localhost:3004'});
+import axios from 'axios';
 
 
-beforeAll(() => {
-  server.start();
-});
-
-afterAll(() => {
-  server.close();
-});
-
-test('endpoint returns Hello World!', () => {
-  const {data, status} = api.get('/');
-  axios
-
-  expect(status).toBe(200);
-  expect(data).toEqual('Hello World!');
+test('endpoint returns Status 200 & Hello World!', () => {
+  axios.get('http://localhost:3004')
+    .then(res => {
+      expect(res.status).toBe(200);
+      expect(res.data).toBe('Hello World!');
+    });
 });
