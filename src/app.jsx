@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import DateCarousel from './components/DateCarousel.jsx';
 import Schedule from './components/Schedule.jsx';
+import TourType from './components/TourType.jsx';
+import StartAnOffer from './components/StartAnOffer.jsx';
 
 class Scheduler extends React.Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class Scheduler extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: '/'
+      url: '/house'
     })
       .then((newData) => {
         this.setState({
@@ -36,7 +38,13 @@ class Scheduler extends React.Component {
           <DateCarousel/>
         </div>
         <div>
+          <TourType/>
+        </div>
+        <div>
           <Schedule/>
+        </div>
+        <div>
+          <StartAnOffer/>
         </div>
       </div>
     );
