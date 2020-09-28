@@ -14,7 +14,8 @@
     "build": "webpack --config webpack.config.js --watch",
     "compile": "babel src -d lib",
     "db:setup": "node mongo-db/seed.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "babel-loader": "^8.1.0",
@@ -22,6 +23,7 @@
     "mongoose": "^5.10.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "supertest": "^5.0.0",
     "webpack": "^4.44.2"
   },
   "devDependencies": {
