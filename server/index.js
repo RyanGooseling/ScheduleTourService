@@ -7,7 +7,7 @@ const port = 3004;
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+
 });
 
 
