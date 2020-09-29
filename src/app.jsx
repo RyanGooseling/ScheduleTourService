@@ -23,7 +23,7 @@ class Scheduler extends React.Component {
     })
       .then((newData) => {
         this.setState({
-          dates: newDates
+          dates: newData
         });
       })
       .catch((err) => {
