@@ -30,6 +30,8 @@ describe('testing server endpoints', () => {
   });
 });
 
+// === The db queries will FAIL at the moment because the seeding was not approved at the time this branch was created. This is the first of many testing branches ====
+
 describe('testing db queries', () => {
   test('check my db query returns an array', (done) => {
     Tour.find({})
