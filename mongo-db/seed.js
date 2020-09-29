@@ -35,12 +35,13 @@ const populate = function() {
     }
     sampleTours.push(sampleHouseTours);
   }
+  toursList = sampleTours.flat();
 };
 
-const insertSampleTours = function() {
-  Tour.create(sampleTours)
+const insertTours = function() {
+  Tour.create(toursList)
     .then(() => db.disconnect());
 };
 
 populate();
-insertSampleTours();
+insertTours();
