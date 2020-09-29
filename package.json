@@ -7,13 +7,17 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "node ./server/index.js",
-    "build": "babel src -d lib",
+    "start": "nodemon ./server/index.js",
+    "build": "webpack --config webpack.config.js --watch",
+    "compile": "babel src -d lib",
     "db:setup": "node mongo-db/seed.js"
   },
   "dependencies": {
+    "axios": "^0.20.0",
+    "babel-loader": "^8.1.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.6",
+    "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "webpack": "^4.44.2"
@@ -22,7 +26,9 @@
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git"
+    "@babel/preset-react": "^7.10.4",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "webpack-cli": "^3.3.12"
   },
   "version": "1.0.0",
   "main": "./server/index.js",
