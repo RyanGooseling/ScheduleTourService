@@ -57,7 +57,7 @@ describe('testing db queries', () => {
     Tour.find({})
       .then((tours) => {
         let index = Math.floor(Math.random() * tours.length);
-        expect(typeof tours[0]).toBe('object');
+        expect(typeof tours[index]).toBe('object');
         done();
       })
       .catch((err) => {
