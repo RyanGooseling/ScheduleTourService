@@ -2,12 +2,44 @@
 
 body {
   font-family: 'PT Serif', sans-serif;
+  margin: 0px;
+  width: 313px;
+  opacity: 1;
+  display: block
+}
+
+.carousel {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
   margin: 0px
 }
 
 .carouselButtons {
-  display: inline-block;
+  display: inline-flex;
   text-align: center;
+  justify-content: center;
+  width: 88.33px;
+  height: 88.33px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  box-sizing: border-box;
   border: 2px solid;
   border-radius: 2px 2px 2px 2px
+}
+
+.submit {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 40px;
+  padding: 12px 1.5rem;
+  border-radius: 2px 2px 2px 2px
+}
+
+.subscript {
+  text-align: left;
+  font-size: 12px;
 }

@@ -5,9 +5,9 @@ const StartAnOffer = (props) => (
   <div>
     <span> --- OR --- </span>
     <br></br>
-    <button> Start an offer </button>
+    <button class='button'> Start an offer </button>
     <br></br>
-    <span> Buy with a Redfin Agent </span>
+    <span class='subscript'> Buy with a Redfin Agent and get cash back</span>
   </div>
 );
 
