@@ -42,7 +42,7 @@ describe('testing db queries', () => {
       });
   });
 
-  test('check my db has 100 entries', (done) => {
+  test('check my db has 10000 entries', (done) => {
     Tour.find({})
       .then((tours) => {
         expect(tours.length).toBe(100);
