@@ -3,11 +3,13 @@
  */
 
 import axios from 'axios';
+const Tour = require('../mongo-db/Tour.js');
+const db = require('../mongo-db/index.js');
 
-describe('testing endpoints', () => {
+describe('testing server endpoints', () => {
   test('endpoint returns Status 200', (done) => {
     axios.get('http://localhost:3004')
-      .then(res => {
+      .then((res) => {
         expect(res.status).toBe(200);
         done();
       })
@@ -18,7 +20,7 @@ describe('testing endpoints', () => {
 
   test('endpoint returns Hello World!', (done) => {
     axios.get('http://localhost:3004')
-      .then(res => {
+      .then((res) => {
         expect(res.data).toBe('Hello World!');
         done();
       })
@@ -29,7 +31,36 @@ describe('testing endpoints', () => {
 });
 
 describe('testing db queries', () => {
-  test('does my db exist', (done) => {
+  test('check my db query returns an array', (done) => {
+    Tour.find({})
+      .then((tours) => {
+        expect(Array.isArray(tours)).toBe(true);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
 
+  test('check my db has 100 entries', (done) => {
+    Tour.find({})
+      .then((tours) => {
+        expect(tours.length).toBe(100);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test('check a db entry is an object', (done) => {
+    Tour.find({})
+      .then((tours) => {
+        expect(typeof tours[0]).toBe('object');
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
   });
 });
