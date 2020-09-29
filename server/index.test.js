@@ -45,7 +45,7 @@ describe('testing db queries', () => {
   test('check my db has 10000 entries', (done) => {
     Tour.find({})
       .then((tours) => {
-        expect(tours.length).toBe(100);
+        expect(tours.length).toBe(10000);
         done();
       })
       .catch((err) => {
@@ -56,6 +56,7 @@ describe('testing db queries', () => {
   test('check a db entry is an object', (done) => {
     Tour.find({})
       .then((tours) => {
+        let index = Math.floor(Math.random() * tours.length);
         expect(typeof tours[0]).toBe('object');
         done();
       })
