@@ -14,6 +14,8 @@ class Scheduler extends React.Component {
       dates: '',
       tourType: 'In-person',
     };
+
+    this.changeTourType = this.changeTourType.bind(this);
   }
 
   componentDidMount() {
@@ -23,12 +25,19 @@ class Scheduler extends React.Component {
     })
       .then((newData) => {
         this.setState({
-          dates: newData
+          dates: newData,
+          tourType: 'In-person'
         });
       })
       .catch((err) => {
         console.log('Error', err);
       });
+  }
+
+  changeTourType(selection) {
+    this.setState({
+      tourType: selection
+    });
   }
 
   render() {
@@ -38,7 +47,8 @@ class Scheduler extends React.Component {
           <DateCarousel/>
         </div>
         <div>
-          <TourType/>
+          <TourType
+            handleClick={(e) => this.changeTourType(e)}/>
         </div>
         <div>
           <Schedule/>
