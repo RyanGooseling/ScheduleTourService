@@ -18,10 +18,10 @@ describe('testing server endpoints', () => {
       });
   });
 
-  test('endpoint returns Hello World!', (done) => {
+  test('endpoint returns no generic Hello World!', (done) => {
     axios.get('http://localhost:3004')
       .then((res) => {
-        expect(res.data).toBe('Hello World!');
+        expect(res.data).not.toBe('Hello World!');
         done();
       })
       .catch((err) => {
@@ -60,6 +60,23 @@ describe('testing db queries', () => {
       .then((tours) => {
         let index = Math.floor(Math.random() * tours.length);
         expect(typeof tours[index]).toBe('object');
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test('check a db entry has keys', (done) => {
+    Tour.find({})
+      .then((tours) => {
+        let index = Math.floor(Math.random() * tours.length);
+        let randomEntry = tours[index];
+        let keyArray = [];
+        for (var keys in randomEntry) {
+          keyArray.push(keys);
+        }
+        expect(keyArray).toBe(['houseID', 'schedule']);
         done();
       })
       .catch((err) => {

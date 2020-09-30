@@ -21,9 +21,10 @@ const sampleTourRand = function() {
   return singleSchedule;
 };
 
-const sampleTours = [];
+let sampleTours = [];
 
 const populate = function() {
+  debugger;
   for (var i = 1; i < 101; i++) {
     const sampleHouseTours = [];
     while (sampleHouseTours.length < 100) {
@@ -33,14 +34,16 @@ const populate = function() {
       };
       sampleHouseTours.push(houseSchedule);
     }
-    sampleTours.push(sampleHouseTours);
+    sampleTours = sampleTours.concat(sampleHouseTours);
   }
-  toursList = sampleTours.flat();
 };
 
 const insertTours = function() {
-  Tour.create(toursList)
-    .then(() => db.disconnect());
+  Tour.create(sampleTours)
+    .then(() => db.close())
+    .catch((err) => {
+      console.log('Error: ', err);
+    });
 };
 
 populate();
