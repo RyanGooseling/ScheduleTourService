@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import DateCarousel from './components/DateCarousel.jsx';
 import Schedule from './components/Schedule.jsx';
@@ -11,11 +12,10 @@ class Scheduler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dates: '',
-      tourType: 'In-person',
+      // place holders
+      dates: ['2020-10-01, 2020-10-02, 2020-10-03, 2020-10-04, 2020-10-05'],
     };
 
-    this.changeTourType = this.changeTourType.bind(this);
   }
 
   componentDidMount() {
@@ -24,31 +24,25 @@ class Scheduler extends React.Component {
       url: '/house'
     })
       .then((newData) => {
-        this.setState({
-          dates: newData,
-          tourType: 'In-person'
-        });
+        // this.setState({
+        //   dates: newData,
+        // });
       })
       .catch((err) => {
         console.log('Error', err);
       });
   }
 
-  changeTourType(selection) {
-    this.setState({
-      tourType: selection
-    });
-  }
-
   render() {
     return (
       <div>
         <div>
-          <DateCarousel/>
+          <DateCarousel
+            dates={this.state.dates}
+          />
         </div>
         <div>
-          <TourType
-            handleClick={(e) => this.changeTourType(e)}/>
+          <TourType/>
         </div>
         <div>
           <Schedule/>

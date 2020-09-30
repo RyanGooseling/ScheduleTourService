@@ -20,6 +20,7 @@
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "styled-components": "^5.2.0",
     "webpack": "^4.44.2"
   },
   "devDependencies": {
@@ -27,6 +28,7 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "babel-plugin-styled-components": "^1.11.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "webpack-cli": "^3.3.12"
   },

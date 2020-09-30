@@ -8,7 +8,26 @@ body {
   display: block
 }
 
-.carousel {
+.CarouselArrow {
+  position: absolute;
+  top: 50%;
+  display: block;
+  color: #111;
+  cursor: pointer;
+  opacity: .75;
+  transform: translateY(-50%);
+  transition: opacity .15s cubic-bezier(.4, 0, 1, 1);
+}
+
+.CarouselArrow:focus {outline: 0}
+
+.CarouselArrow:hover {opacity: .5}
+
+.CarouselArrow--left {left: 32px}
+
+.CarouselArrow--right {right: 32px}
+
+/* .carousel {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
   margin: 0px
@@ -27,40 +46,13 @@ body {
   box-sizing: border-box;
   border: 2px solid;
   border-radius: 2px 2px 2px 2px
-}
-
-.tourContainer {
-  display: block;
-}
+} */
 
 .input {
   display: flex;
   flex-direction: row;
   cursor: pointer;
   height: 48px;
-}
-
-.tour-person {
-  display: flex;
-  width: 144px;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  border: 2px solid;
-  text-align: center;
-  box-sizing: border-box;
-  border-radius: 2px 2px 2px 2px;
-}
-.tour-video {
-  display: flex;
-  width: 168px;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  border: 2px solid;
-  text-align: center;
-  box-sizing: border-box;
-  border-radius: 2px 2px 2px 2px
 }
 
 .submit {
