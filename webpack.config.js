@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/sched.jsx',
+  entry: './src/index.jsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'client', 'dist')

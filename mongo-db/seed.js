@@ -15,7 +15,7 @@ const sampleTourRand = function() {
   const singleSchedule = {
     date: dates[dateRand],
     timeWindow: timeWindows[timeRand],
-    walthrough: walkthroughs[walkRand],
+    walkthrough: walkthroughs[walkRand],
     booking: true
   };
   return singleSchedule;
@@ -29,7 +29,7 @@ const populate = function() {
     const sampleHouseTours = [];
     while (sampleHouseTours.length < 100) {
       let houseSchedule = {
-        houseID: i,
+        houseId: i,
         schedule: sampleTourRand()
       };
       sampleHouseTours.push(houseSchedule);
