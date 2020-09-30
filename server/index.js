@@ -12,9 +12,10 @@ const app = express();
 const port = 3004;
 
 
-app.get('/', (req, res) => {
+app.get('/house/:houseId', (req, res) => {
   debugger;
-  Tour.find({})
+  console.log('House ID: ', req.params.houseId);
+  Tour.find({houseId: req.params.houseId})
     .then((tours) => {
       console.log('Successful GET');
       res.send(tours);
@@ -25,8 +26,9 @@ app.get('/', (req, res) => {
     });
 });
 
-app.post('/', (req, res) => {
+app.post('/house/:houseId', (req, res) => {
   debugger;
+  console.log('House ID: ', req.params.houseId);
   // define request body as new booking to be added
   const booking = req.body;
   // insert new booking into db
@@ -34,7 +36,7 @@ app.post('/', (req, res) => {
     .then(() => {
       console.log('Successful POST insert');
       // after inserting the new booking, return the db now including new booking
-      Tour.find({});
+      Tour.find({houseId: req.params.houseId});
     })
     // return the updated db info to the client side via the res.send function
     .then((tours) => {
@@ -49,5 +51,5 @@ app.post('/', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Bluefin listening at http://localhost:${port}`);
+  console.log(`Bluefin listening at http://localhost:${port}/house/1`);
 });

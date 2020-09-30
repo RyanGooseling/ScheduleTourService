@@ -4,10 +4,12 @@ mongoose.Promise = global.Promise;
 
 const tourSchema = new mongoose.Schema({
   houseId: String,
-  date: String,
-  timeWindow: String,
-  walkthrough: String,
-  booking: Boolean
+  schedule: {
+    date: Date,
+    timeWindow: String,
+    walkthrough: String,
+    booking: Boolean
+  }
 });
 
 const Tour = mongoose.model('Tour', tourSchema);
