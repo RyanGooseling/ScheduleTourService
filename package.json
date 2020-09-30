@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "nodemon ./server/index.js",
-    "dev" : "npm run compile && npm run build",
+    "dev": "npm run compile && npm run build",
     "build": "webpack --config webpack.config.js --watch",
     "compile": "babel src -d lib",
     "db:setup": "node mongo-db/seed.js",
@@ -27,6 +27,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "regenerator-runtime": "^0.13.7",
+    "sinon": "^9.1.0",
     "supertest": "^5.0.0",
     "webpack": "^4.44.2"
   },

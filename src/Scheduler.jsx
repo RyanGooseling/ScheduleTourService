@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 import DateCarousel from './components/DateCarousel.jsx';
@@ -51,4 +50,4 @@ class Scheduler extends React.Component {
   }
 }
 
-ReactDOM.render(<Scheduler/>, document.getElementById('scheduler'));
+export default Scheduler;

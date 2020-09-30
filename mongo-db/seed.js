@@ -15,32 +15,35 @@ const sampleTourRand = function() {
   const singleSchedule = {
     date: dates[dateRand],
     timeWindow: timeWindows[timeRand],
-    walthrough: walkthroughs[walkRand],
+    walkthrough: walkthroughs[walkRand],
     booking: true
   };
   return singleSchedule;
 };
 
-const sampleTours = [];
+let sampleTours = [];
 
 const populate = function() {
+  debugger;
   for (var i = 1; i < 101; i++) {
     const sampleHouseTours = [];
     while (sampleHouseTours.length < 100) {
       let houseSchedule = {
-        houseID: i,
+        houseId: i,
         schedule: sampleTourRand()
       };
       sampleHouseTours.push(houseSchedule);
     }
-    sampleTours.push(sampleHouseTours);
+    sampleTours = sampleTours.concat(sampleHouseTours);
   }
-  toursList = sampleTours.flat();
 };
 
 const insertTours = function() {
-  Tour.create(toursList)
-    .then(() => db.disconnect());
+  Tour.create(sampleTours)
+    .then(() => db.close())
+    .catch((err) => {
+      console.log('Error: ', err);
+    });
 };
 
 populate();
