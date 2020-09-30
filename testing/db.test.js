@@ -44,12 +44,12 @@ describe('testing db queries', () => {
 });
 
 describe('testing individual db queries', () => {
-  test('check a db entry has numerical houseId key', (done) => {
+  test('check a db entry has all string responses, houseId key does not return number', (done) => {
     Tour.find({})
       .then((tours) => {
         let index = Math.floor(Math.random() * tours.length);
         let randomEntry = tours[index];
-        expect(typeof randomEntry.houseId).toBe('number');
+        expect(typeof randomEntry.houseId).toBe('string');
         done();
       })
       .catch((err) => {
