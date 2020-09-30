@@ -51,4 +51,4 @@ class Scheduler extends React.Component {
   }
 }
 
-ReactDOM.render(<Scheduler/>, document.getElementById('scheduler'));
+export default Scheduler;
