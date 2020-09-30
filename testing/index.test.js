@@ -67,7 +67,7 @@ describe('testing db queries', () => {
       });
   });
 
-  test('check a db entry has keys', (done) => {
+  test('check a db entry has specified schema keys', (done) => {
     Tour.find({})
       .then((tours) => {
         let index = Math.floor(Math.random() * tours.length);
