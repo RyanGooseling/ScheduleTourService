@@ -13,6 +13,9 @@
     "db:setup": "node mongo-db/seed.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.31",
+    "@fortawesome/free-solid-svg-icons": "^5.15.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
     "express": "^4.17.1",

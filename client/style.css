@@ -27,6 +27,34 @@ body {
 
 .CarouselArrow--right {right: 32px}
 
+.CarouselSlide {
+  height: 50px;
+  width: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  display: none;
+  max-width: 900px;
+  list-style-type: none;
+  text-align: center;
+}
+.CarouselSlideActive {
+  height: 50px;
+  width: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  max-width: 900px;
+  list-style-type: none;
+  text-align: center;
+}
+
+.inactive {
+  display: none;
+}
+.active {
+  display: block;
+}
+
 /* .carousel {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
