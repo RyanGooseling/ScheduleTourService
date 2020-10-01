@@ -22,6 +22,12 @@ app.get('/house', (req, res) => {
   res.end();
 });
 
+app.post('/house', (req, res) => {
+  console.log('Post Received');
+  res.send('Hello World!');
+  res.end();
+});
+
 
 
 
