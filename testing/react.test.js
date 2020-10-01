@@ -16,7 +16,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 
 describe('testing React components', () => {
-  test('the app components', () => {
+  test('four main components', () => {
     // Change tour type in state with click of the document
     const wrapper = shallow(<Scheduler />);
     expect(wrapper.contains(<TourType />)).toBe(true);
@@ -24,12 +24,30 @@ describe('testing React components', () => {
     expect(wrapper.contains(<Schedule />)).toBe(true);
     expect(wrapper.contains(<DateCarousel />)).toBe(true);
   });
-});
 
-describe('testing TourType components', () => {
   test('check TourType for two buttons', () => {
     // Change tour type in state with click of the document
     const wrapper = shallow(<TourType />);
     expect(wrapper.find('button').length).toBe(2);
+  });
+});
+
+describe('testing React button', () => {
+  test('check StartAnOffer for a button', () => {
+    const wrapper = shallow(<StartAnOffer />);
+    expect(wrapper.find('button').length).toBe(1);
+  });
+
+  test('can we click a button on StartAnOffer?', () => {
+    const mockButtonClick = jest.fn();
+    const button = shallow((<StartAnOffer onClick={mockButtonClick} />));
+    console.log(button);
+
+    button.find('button').simulate('click');
+
+    console.log(button.find('button').simulate('click'));
+    console.log(mockButtonClick.mock);
+
+    expect(mockButtonClick).toHaveBeenCalled();
   });
 });
