@@ -18,6 +18,11 @@ app.get('/house/:houseId', (req, res) => {
   Tour.find({houseId: req.params.houseId})
     .then((tours) => {
       console.log('Successful GET');
+      // sort soonest to latest
+      tours.sort((a, b) => {
+        return a.schedule.date - a.schedule.date;
+      });
+      console.log('Single Tour from Mongo: ', tours[0]);
       res.send(tours);
       res.end();
     })
@@ -41,6 +46,10 @@ app.post('/house/:houseId', (req, res) => {
     // return the updated db info to the client side via the res.send function
     .then((tours) => {
       console.log('Successful return of new db from POST');
+      // sort soonest to latest
+      tours.sort((a, b) => {
+        return a.schedule.date - a.schedule.date;
+      });
       res.send(tours);
       res.end();
     })
