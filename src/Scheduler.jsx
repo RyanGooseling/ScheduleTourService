@@ -20,12 +20,13 @@ class Scheduler extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: '/house'
+      url: '/houseId/1'
     })
       .then((newData) => {
-        // this.setState({
-        //   dates: newData,
-        // });
+        this.setState({
+          // Just using placeholders
+          dates: ['2020-10-01, 2020-10-02, 2020-10-03, 2020-10-04, 2020-10-05'],
+        });
       })
       .catch((err) => {
         console.log('Error', err);
