@@ -26,7 +26,7 @@ const Schedule = (props) => {
 
   return (
     <div>
-      <SubmitSchedule> Schedule Tour </SubmitSchedule>
+      <SubmitSchedule onClick={() => console.log('Submit: ', props.state)}> Schedule Tour </SubmitSchedule>
       <br></br>
       <Subscript> It's free, with no obligation - cancel anytime</Subscript>
     </div>

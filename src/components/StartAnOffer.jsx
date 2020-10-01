@@ -5,8 +5,15 @@ import styled from 'styled-components';
 const StartAnOffer = (props) => {
 
   const Subscript = styled.span`
-  text-align: left;
-  font-size: 12px;
+    text-align: left;
+    font-size: 12px;
+  `;
+
+  const OrSpan = styled.span`
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    text-align: center;
   `;
 
   const Submit = styled.button`
@@ -17,11 +24,12 @@ const StartAnOffer = (props) => {
     height: 40px;
     padding: 12px 1.5rem;
     border-radius: 2px 2px 2px 2px
-    `;
+  `;
+
 
   return (
     <div>
-      <span> --- OR --- </span>
+      <OrSpan> --- OR --- </OrSpan>
       <br></br>
       <Submit> Start an offer </Submit>
       <br></br>

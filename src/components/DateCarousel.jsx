@@ -5,19 +5,13 @@ import RightArrow from './RightArrow.jsx';
 import Slide from './Slide.jsx';
 
 const DateCarousel = (props) => {
-  console.log('Dates: ', props.dates);
-  // override dates with indices for the time deings
-  const fakeDates = [1, 2, 3, 4, 5];
-  const [activeIndex, setIndex] = useState(1);
-  const [tourDate, setDate] = useState(3);
 
-  const goToSlide = function(input) {
-    setIndex(input);
-  };
+  const [fakeDates, setDates] = useState([1, 2, 3, 4, 5, 6, 7]);
+  const [activeIndex, setIndex] = useState(fakeDates[1]);
+  const [tourDate, setDate] = useState(fakeDates[1]);
 
   const goToPrevSlide = function(e) {
     e.preventDefault();
-
     let index = activeIndex;
     let slides = fakeDates;
     let slidesLength = slides.length - 1;
@@ -31,7 +25,6 @@ const DateCarousel = (props) => {
 
   const goToNextSlide = function(e) {
     e.preventDefault();
-
     let index = activeIndex;
     let slides = fakeDates;
     let slidesLength = slides.length - 1;
@@ -53,23 +46,26 @@ const DateCarousel = (props) => {
   return (
     <div> Go tour this home
       <br></br>
-      <span className='slider'>
-        <SlideContainer>
-          <LeftArrow
-            goToPrevSlide={(e) => goToPrevSlide(e)}
+      <SlideContainer>
+        <LeftArrow
+          goToPrevSlide={(e) => goToPrevSlide(e)}
+          activeIndex={activeIndex}
+          fakeDates={fakeDates}
+        />
+        <div className='inner-Container'>
+          <Slide
+            activeIndex={activeIndex}
+            tourDate={tourDate}
+            setDate={setDate}
+            fakeDates={fakeDates}
           />
-          <div className='inner-Container'>
-            <Slide
-              activeIndex={activeIndex}
-              tourDate={tourDate}
-              setDate={setDate}
-            />
-          </div>
-          <RightArrow
-            goToNextSlide={(e) => goToNextSlide(e)}
-          />
-        </SlideContainer>
-      </span>
+        </div>
+        <RightArrow
+          goToNextSlide={(e) => goToNextSlide(e)}
+          activeIndex={activeIndex}
+          fakeDates={fakeDates}
+        />
+      </SlideContainer>
     </div>
   );
 };

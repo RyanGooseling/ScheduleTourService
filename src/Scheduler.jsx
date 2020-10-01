@@ -12,20 +12,21 @@ class Scheduler extends React.Component {
     super(props);
     this.state = {
       // place holders
-      dates: ['2020-10-01, 2020-10-02, 2020-10-03, 2020-10-04, 2020-10-05'],
+      dates: [],
     };
 
   }
 
   componentDidMount() {
+    console.log('sending get');
     axios({
       method: 'get',
-      url: '/houseId/1'
+      url: '/house/1'
     })
       .then((newData) => {
+        console.log('New Data: ', newData.data);
         this.setState({
-          // Just using placeholders
-          dates: ['2020-10-01, 2020-10-02, 2020-10-03, 2020-10-04, 2020-10-05'],
+          dates: newData.data,
         });
       })
       .catch((err) => {
@@ -45,7 +46,12 @@ class Scheduler extends React.Component {
           <TourType/>
         </div>
         <div>
-          <Schedule/>
+          <Schedule
+            state={this.state}
+            // I need to pass in the type of tour as well as the date of tour...
+            // Those are both defined further down into the nested components
+            // any point of react hooks for this
+          />
         </div>
         <div>
           <StartAnOffer/>
