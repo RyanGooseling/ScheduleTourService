@@ -3,7 +3,6 @@ import React from 'react';
 
 const Schedule = (props) => {
 
-
   return (
     <div>
       <button class='button' onClick={() => props.showModal()}> Schedule with this button </button>

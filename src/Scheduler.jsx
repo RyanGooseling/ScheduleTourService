@@ -17,6 +17,7 @@ class Scheduler extends React.Component {
     };
 
     this.showModal = this.showModal.bind(this);
+    this.onClose = this.onClose.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +47,12 @@ class Scheduler extends React.Component {
     }
   }
 
+  onClose() {
+    this.setState({
+      modal: false
+    });
+  }
+
   render() {
     return (
       <div>
@@ -67,7 +74,7 @@ class Scheduler extends React.Component {
         <div>
           <Booker
             modal={this.state.modal}
-
+            onClose={this.onClose}
           />
         </div>
       </div>
