@@ -3,7 +3,11 @@ import React from 'react';
 
 const Booker = (props) => {
 
-  console.log('Booker props: ', props.modal);
+  const onClose = function() {
+    props.setState({
+      modal: false
+    });
+  };
 
   if (props.modal) {
     return null;
