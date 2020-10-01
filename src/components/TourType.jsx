@@ -5,6 +5,13 @@ const TourType = (props) => {
 
   const [tourType, setType] = useState('In-person');
 
+  const Input = styled.div`
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    height: 48px;
+    `;
+
   const TourPerson = styled.div`
     display: flex;
     width: 144px;
@@ -29,19 +36,19 @@ const TourType = (props) => {
   if (tourType === 'In-person') {
     return (
       <span>
-        <div class='input'>
+        <Input>
           <TourPersonSelected onClick={() => setType('In-person')}> Tour in Person </TourPersonSelected>
           <TourVideo onClick={() => setType('Video')}> Tour via Video</TourVideo>
-        </div>
+        </Input>
       </span>
     );
   } else {
     return (
       <span>
-        <div class='input'>
+        <Input>
           <TourPerson onClick={() => setType('In-person')}> Tour in Person </TourPerson>
           <TourVideoSelected onClick={() => setType('Video')}> Tour via Video</TourVideoSelected>
-        </div>
+        </Input>
       </span>
     );
   }

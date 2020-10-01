@@ -6,7 +6,7 @@ const LeftArrow = (props) => {
 
   return (
     <div className= 'backArrow' onClick={props.goToPrevSlide}>
-      <i>ARROW</i>
+      <i>{'<'}</i>
     </div>
   );
 };

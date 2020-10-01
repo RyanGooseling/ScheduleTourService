@@ -9,9 +9,7 @@ const DateCarousel = (props) => {
   // override dates with indices for the time deings
   const fakeDates = [1, 2, 3, 4, 5];
   const [activeIndex, setIndex] = useState(1);
-
-  // NOTE: The tourDate is NOT the same as the active Index
-  const [tourDate, setDate] = useState('');
+  const [tourDate, setDate] = useState(3);
 
   const goToSlide = function(input) {
     setIndex(input);
@@ -45,26 +43,33 @@ const DateCarousel = (props) => {
     setIndex(index);
   };
 
-
+  const SlideContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-between;
+  `;
 
   return (
     <div> Go tour this home
       <br></br>
-      <div className='slider'>
-        <div className='slider-items'>
+      <span className='slider'>
+        <SlideContainer>
           <LeftArrow
             goToPrevSlide={(e) => goToPrevSlide(e)}
           />
-          <div className='slider-text'>
+          <div className='inner-Container'>
             <Slide
               activeIndex={activeIndex}
+              tourDate={tourDate}
+              setDate={setDate}
             />
           </div>
           <RightArrow
             goToNextSlide={(e) => goToNextSlide(e)}
           />
-        </div>
-      </div>
+        </SlideContainer>
+      </span>
     </div>
   );
 };

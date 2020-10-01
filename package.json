@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "nodemon ./server/index.js",
+    "dev": "npm run compile && npm run build",
     "build": "webpack --config webpack.config.js --watch",
     "compile": "babel src -d lib",
     "db:setup": "node mongo-db/seed.js"
