@@ -54,31 +54,36 @@ class Scheduler extends React.Component {
   }
 
   render() {
-    return (
-      <div>
+    if (!this.state.modal) {
+      return (
         <div>
-          <DateCarousel/>
+          <div>
+            <DateCarousel/>
+          </div>
+          <div>
+            <TourType/>
+          </div>
+          <div>
+            <Schedule
+              showModal={this.showModal}
+              modal={this.state.modal}
+            />
+          </div>
+          <div>
+            <StartAnOffer/>
+          </div>
         </div>
-        <div>
-          <TourType/>
-        </div>
-        <div>
-          <Schedule
-            showModal={this.showModal}
-            modal={this.state.modal}
-          />
-        </div>
-        <div>
-          <StartAnOffer/>
-        </div>
+      );
+    } else {
+      return (
         <div>
           <Booker
             modal={this.state.modal}
             onClose={this.onClose}
           />
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 

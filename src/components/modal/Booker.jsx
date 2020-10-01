@@ -1,18 +1,21 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import TourType from '../TourType.jsx';
+import TimeCarousel from './TimeCarousel.jsx';
+import styled from 'styled-components';
 
 const Booker = (props) => {
 
   const Modal = styled.div`
-  width: 500px;
-  background: white;
-  border: 1px solid #ccc;
-  transition: 1.1s ease-out;
-  box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
-  filter: blur(0);
-  transform: scale(1);
-  opacity: 1;
-  visibility: visible;
+    width: 100%;
+    height:100%;
+    background: white;
+    border: 1px solid #ccc;
+    transition: 1.1s ease-out;
+    box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
   `;
 
   const Content = styled.div`
@@ -24,11 +27,15 @@ const Booker = (props) => {
   } else {
     return (
       <Modal id="modal">
-        <h2>Let's Book</h2>
-        <Content>{'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non fuga omnis a sed impedit explicabo accusantium nihil doloremque consequuntur.'}</Content>
+        <h2>Pick a date</h2>
+        <Content>{'Date Carousel 6'}</Content>
+        <h2>How would you like to tour?</h2>
+        <TourType />
+        <h2>Pick a time</h2>
+        <Content>{'Time Carousel 5'}</Content>
         <div class="actions">
           <button class="toggle-button" onClick={() => props.onClose()}>
-            close
+            Book and Return
           </button>
         </div>
       </Modal>
