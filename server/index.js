@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -16,7 +19,11 @@ app.use(express.static(__dirname + '/../client'));
 app.get('/house', (req, res) => {
   debugger;
   res.send('Hello World!');
+  res.end();
 });
+
+
+
 
 app.listen(port, () => {
   console.log(`Bluefin listening at http://localhost:${port}`);

@@ -6,12 +6,17 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "jest": {
+    "verbose": true
+  },
   "scripts": {
     "start": "nodemon ./server/index.js",
     "dev": "npm run compile && npm run build",
     "build": "webpack --config webpack.config.js --watch",
     "compile": "babel src -d lib",
-    "db:setup": "node mongo-db/seed.js"
+    "db:setup": "node mongo-db/seed.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.31",
@@ -25,6 +30,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0",
+    "regenerator-runtime": "^0.13.7",
+    "sinon": "^9.1.0",
+    "supertest": "^5.0.0",
     "webpack": "^4.44.2"
   },
   "devDependencies": {
@@ -33,7 +41,10 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-plugin-styled-components": "^1.11.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "jest": "^26.4.2",
     "webpack-cli": "^3.3.12"
   },
   "version": "1.0.0",
