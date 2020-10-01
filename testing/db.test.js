@@ -30,6 +30,17 @@ describe('testing db queries', () => {
       });
   });
 
+  test('check each houseId has 100 entries', (done) => {
+    Tour.find({houseId: 1})
+      .then((tours) => {
+        expect(tours.length).toBe(100);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
   test('check a db entry is an object', (done) => {
     Tour.find({})
       .then((tours) => {

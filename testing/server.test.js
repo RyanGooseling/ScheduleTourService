@@ -6,7 +6,7 @@ import axios from 'axios';
 
 describe('testing server endpoints', () => {
   test('endpoint returns Status 200', (done) => {
-    axios.get('http://localhost:3004')
+    axios.get('http://localhost:3004/house/1')
       .then((res) => {
         expect(res.status).toBe(200);
         done();
@@ -16,10 +16,21 @@ describe('testing server endpoints', () => {
       });
   });
 
-  test('endpoint returns generic Hello World! without db connection', (done) => {
-    axios.get('http://localhost:3004/house')
+  test('endpoint does not return generic Hello World!', (done) => {
+    axios.get('http://localhost:3004/house/1')
       .then((res) => {
-        expect(res.data).toBe('Hello World!');
+        expect(res.data).not.toBe('Hello World!');
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test('endpoint returns an array of data', (done) => {
+    axios.get('http://localhost:3004/house/1')
+      .then((res) => {
+        expect(Array.isArray(res.data)).toBe(true);
         done();
       })
       .catch((err) => {
