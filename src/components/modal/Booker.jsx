@@ -11,6 +11,9 @@ const Booker = (props) => {
     return (
       <span>
         <div>Let's Book</div>
+        <button onClick={() => this.onClose()}>
+          Close
+        </button>
       </span>
     );
   }
