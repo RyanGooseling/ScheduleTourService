@@ -18,12 +18,18 @@ app.get('/house/:houseId', (req, res) => {
   console.log('House ID: ', req.params.houseId);
   Tour.find({houseId: req.params.houseId})
     .then((tours) => {
-      console.log('Successful GET');
-      // sort soonest to latest
-      tours.sort((a, b) => {
+      console.log('Successful GET', tours);
+      let bookedTours = [];
+      tours.forEach(tour => {
+        if (tour.schedule.booking === true) {
+          bookedTours.push(tour);
+        }
+      });
+      bookedTours.sort((a, b) => {
         return a.schedule.date - a.schedule.date;
       });
-      res.send(tours);
+      console.log(bookedTours);
+      res.send(bookedTours);
       res.end();
     })
     .catch((err) => {

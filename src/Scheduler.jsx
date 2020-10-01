@@ -10,8 +10,9 @@ class Scheduler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dates: '',
+      data: '',
       tourType: 'In-person',
+      tourSched: {}
     };
   }
 
@@ -21,9 +22,22 @@ class Scheduler extends React.Component {
       url: '/house/1'
     })
       .then((newData) => {
-        this.setState({
-          dates: newData.data
+        let rawData = newData.data;
+        console.log(rawData);
+        let fullSched = {};
+        rawData.forEach(element => {
+          let tourDate = element.schedule.date;
+          if (fullSched[tourDate] === undefined) {
+            fullSched[tourDate] = [element.schedule.timeWindow];
+          } else {
+            fullSched[tourDate].push(element.schedule.timeWindow);
+          }
         });
+        this.setState({
+          data: rawData,
+          tourSched: fullSched,
+        });
+        console.log(this.state.tourSched);
       })
       .catch((err) => {
         console.log('Error', err);
