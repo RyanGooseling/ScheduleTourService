@@ -18,7 +18,7 @@ class Scheduler extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: '/house'
+      url: '/house/1'
     })
       .then((newData) => {
         this.setState({

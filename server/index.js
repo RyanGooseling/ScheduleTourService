@@ -1,6 +1,3 @@
-/**
- * @jest-environment node
- */
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -14,7 +11,7 @@ const port = 3004;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// what about requiring "path"
+app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/house/:houseId', (req, res) => {
   debugger;
@@ -26,7 +23,6 @@ app.get('/house/:houseId', (req, res) => {
       tours.sort((a, b) => {
         return a.schedule.date - a.schedule.date;
       });
-      console.log('Single Tour from Mongo: ', tours[0]);
       res.send(tours);
       res.end();
     })
