@@ -2,7 +2,11 @@ import React from 'react';
 
 
 const Schedule = (props) => (
-  <button> Schedule with this button </button>
+  <div>
+    <button class='button'> Schedule with this button </button>
+    <br></br>
+    <span class='subscript'> It's free, with no obligation - cancel anytime</span>
+  </div>
 );
 
 export default Schedule;

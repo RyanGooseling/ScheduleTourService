@@ -11,6 +11,10 @@ const db = require('../mongo-db/index.js');
 const app = express();
 const port = 3004;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+// what about requiring "path"
 
 app.get('/house/:houseId', (req, res) => {
   debugger;
