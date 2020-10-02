@@ -13,7 +13,7 @@ class Scheduler extends React.Component {
     this.state = {
       data: '',
       tourType: 'In-person',
-      tourSched: {}
+      tourSched: {},
       modal: false
     };
 
