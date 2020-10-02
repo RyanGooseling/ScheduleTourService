@@ -91,7 +91,7 @@ class Scheduler extends React.Component {
   render() {
     if (!this.state.modal) {
       return (
-        <div>
+        <div className="sm-container">
           <div>
             <DateCarousel/>
           </div>
@@ -111,7 +111,7 @@ class Scheduler extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="lrg-container">
           <Booker
             modal={this.state.modal}
             onClose={this.onClose}

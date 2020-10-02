@@ -3,12 +3,20 @@
 body {
   font-family: 'PT Serif', sans-serif;
   margin: 0px;
-  width: 313px;
   opacity: 1;
   display: block
 }
 
+.sm-container {
+  width: 313px
+}
+.lrg-container {
+  width: 618px
+}
+
 .carousel {
+  display: inline-flex;
+  justify-content: center;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
   margin: 0px
@@ -18,14 +26,30 @@ body {
   display: inline-flex;
   text-align: center;
   justify-content: center;
-  width: 88.33px;
-  height: 88.33px;
+  width: 86.33px;
+  height: 86.33px;
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-right: 0.25rem;
   margin-left: 0.25rem;
   box-sizing: border-box;
   border: 2px solid;
+  border-radius: 2px 2px 2px 2px
+}
+
+.carouselButtons-Time {
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  width: 108px;
+  height: 60px;
+  padding: 21px 9px 21px 9px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  box-sizing: border-box;
+  border: 1px solid;
   border-radius: 2px 2px 2px 2px
 }
 
