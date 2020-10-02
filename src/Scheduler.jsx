@@ -12,9 +12,9 @@ class Scheduler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // place holders
       dates: [],
-      TourType: 'In-person'
+      TourType: 'In-person',
+      modal: false
     };
 
     this.setTourType = this.setTourType.bind(this);
@@ -83,7 +83,6 @@ class Scheduler extends React.Component {
         <div>
           <Booker
             modal={this.state.modal}
-
           />
         </div>
       </div>

@@ -3,18 +3,17 @@ import React from 'react';
 
 const Booker = (props) => {
 
-  console.log('Booker props: ', props.modal);
 
   if (props.modal) {
-    return null;
-  } else {
     return (
       <span>
-        <div>Let's Book</div>
+        <br></br>
+        <div>BOOKING MODAL WINDOW TO GO HERE!</div>
       </span>
     );
+  } else {
+    return null;
   }
 };
-
 
 export default Booker;
