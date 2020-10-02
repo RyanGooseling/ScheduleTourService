@@ -30,6 +30,17 @@ describe('testing db queries', () => {
       });
   });
 
+  test('check each houseId has 100 entries', (done) => {
+    Tour.find({houseId: 1})
+      .then((tours) => {
+        expect(tours.length).toBe(100);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
   test('check a db entry is an object', (done) => {
     Tour.find({})
       .then((tours) => {
@@ -44,12 +55,12 @@ describe('testing db queries', () => {
 });
 
 describe('testing individual db queries', () => {
-  test('check a db entry has all string responses, houseId key does not return number', (done) => {
+  test('check a db entry has all string responses, houseId key returns number', (done) => {
     Tour.find({})
       .then((tours) => {
         let index = Math.floor(Math.random() * tours.length);
         let randomEntry = tours[index];
-        expect(typeof randomEntry.houseId).toBe('string');
+        expect(typeof randomEntry.houseId).toBe('number');
         done();
       })
       .catch((err) => {
