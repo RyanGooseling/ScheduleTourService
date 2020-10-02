@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import DateCarousel from './components/DateCarousel.jsx';
 import Schedule from './components/Schedule.jsx';
@@ -11,27 +12,50 @@ class Scheduler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dates: '',
+      data: '',
       tourType: 'In-person',
+      tourSched: {},
       modal: false
     };
 
+    this.setTourType = this.setTourType.bind(this);
     this.showModal = this.showModal.bind(this);
   }
 
   componentDidMount() {
+    console.log('sending get');
     axios({
       method: 'get',
-      url: '/house'
+      url: '/house/1'
     })
       .then((newData) => {
-        this.setState({
-          dates: newData
+        let rawData = newData.data;
+        console.log(rawData);
+        let fullSched = {};
+        rawData.forEach(element => {
+          let tourDate = element.schedule.date;
+          if (fullSched[tourDate] === undefined) {
+            fullSched[tourDate] = [element.schedule.timeWindow];
+          } else {
+            fullSched[tourDate].push(element.schedule.timeWindow);
+          }
         });
+        this.setState({
+          data: rawData,
+          tourSched: fullSched,
+        });
+        console.log(this.state.tourSched);
       })
       .catch((err) => {
         console.log('Error', err);
       });
+  }
+
+  setTourType(string) {
+    this.setState({
+      TourType: string
+    });
+    console.log(this.state);
   }
 
   showModal() {
@@ -50,10 +74,15 @@ class Scheduler extends React.Component {
     return (
       <div>
         <div>
-          <DateCarousel/>
+          <DateCarousel
+            dates={this.state.dates}
+          />
         </div>
         <div>
-          <TourType/>
+          <TourType
+            TourType={this.state.TourType}
+            setTourType={(input) => this.setTourType(input)}
+          />
         </div>
         <div>
           <Schedule
@@ -67,7 +96,6 @@ class Scheduler extends React.Component {
         <div>
           <Booker
             modal={this.state.modal}
-
           />
         </div>
       </div>

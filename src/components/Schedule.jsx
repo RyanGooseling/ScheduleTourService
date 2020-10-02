@@ -1,14 +1,34 @@
 import React from 'react';
-
+import styled from 'styled-components';
 
 const Schedule = (props) => {
 
+  const Subscript = styled.span`
+    text-align: left;
+    font-size: 12px;
+    `;
+
+  const SubmitSchedule = styled.button`
+    width: 100%;
+    color: white;
+    background-color: blue;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 40px;
+    padding: 12px 1.5rem;
+    border-radius: 2px 2px 2px 2px;
+
+    &:hover {
+      background-color: cornflowerblue;
+    }
+    `;
 
   return (
     <div>
-      <button class='button' onClick={() => props.showModal()}> Schedule with this button </button>
+      <SubmitSchedule onClick={() => props.showModal()}> Schedule Tour </SubmitSchedule>
       <br></br>
-      <span class='subscript'> It's free, with no obligation - cancel anytime</span>
+      <Subscript> It's free, with no obligation - cancel anytime</Subscript>
     </div>
   );
 };
