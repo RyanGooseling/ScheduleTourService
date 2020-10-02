@@ -3,7 +3,7 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const tourSchema = new mongoose.Schema({
-  houseId: String,
+  houseId: Number,
   schedule: {
     date: Date,
     timeWindow: String,
