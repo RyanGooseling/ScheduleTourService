@@ -52,7 +52,7 @@ const DateCarousel = (props) => {
           activeIndex={activeIndex}
           fakeDates={fakeDates}
         />
-        <div className='inner-Container'>
+        <div>
           <Slide
             activeIndex={activeIndex}
             tourDate={tourDate}
