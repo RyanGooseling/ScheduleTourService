@@ -18,7 +18,7 @@ app.get('/house/:houseId', (req, res) => {
   console.log('House ID: ', req.params.houseId);
   Tour.find({houseId: req.params.houseId})
     .then((tours) => {
-      console.log('Successful GET', tours);
+      console.log('Successful GET');
       let bookedTours = [];
       tours.forEach(tour => {
         if (tour.schedule.booking === true) {
@@ -28,7 +28,6 @@ app.get('/house/:houseId', (req, res) => {
       bookedTours.sort((a, b) => {
         return a.schedule.date - a.schedule.date;
       });
-      console.log(bookedTours);
       res.send(bookedTours);
       res.end();
     })
