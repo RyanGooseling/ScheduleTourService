@@ -5,6 +5,7 @@ import DateCarousel from './components/DateCarousel.jsx';
 import Schedule from './components/Schedule.jsx';
 import TourType from './components/TourType.jsx';
 import StartAnOffer from './components/StartAnOffer.jsx';
+import Booker from './components/Modal/Booker.jsx';
 
 class Scheduler extends React.Component {
   constructor(props) {
@@ -13,7 +14,10 @@ class Scheduler extends React.Component {
       data: '',
       tourType: 'In-person',
       tourSched: {}
+      modal: false
     };
+
+    this.showModal = this.showModal.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +48,18 @@ class Scheduler extends React.Component {
       });
   }
 
+  showModal() {
+    if (this.state.modal) {
+      this.setState({
+        modal: false
+      });
+    } else {
+      this.setState({
+        modal: true
+      });
+    }
+  }
+
   render() {
     return (
       <div>
@@ -54,10 +70,19 @@ class Scheduler extends React.Component {
           <TourType/>
         </div>
         <div>
-          <Schedule/>
+          <Schedule
+            showModal={this.showModal}
+            modal={this.state.modal}
+          />
         </div>
         <div>
           <StartAnOffer/>
+        </div>
+        <div>
+          <Booker
+            modal={this.state.modal}
+
+          />
         </div>
       </div>
     );
