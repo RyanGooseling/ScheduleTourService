@@ -8,6 +8,7 @@ body {
   display: block
 }
 
+
 .carousel {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
@@ -25,7 +26,18 @@ body {
   margin-right: 0.25rem;
   margin-left: 0.25rem;
   box-sizing: border-box;
-  border: 2px solid;
+  border-radius: 2px 2px 2px 2px;
+}
+
+.inactive {
+  display: none;
+}
+
+.selected {
+  border: 2px solid
+}
+.unselected {
+  border: 1px solid;
   border-radius: 2px 2px 2px 2px
 }
 

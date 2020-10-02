@@ -24,7 +24,6 @@ const sampleTourRand = function() {
 let sampleTours = [];
 
 const populate = function() {
-  debugger;
   for (var i = 1; i < 101; i++) {
     const sampleHouseTours = [];
     while (sampleHouseTours.length < 100) {

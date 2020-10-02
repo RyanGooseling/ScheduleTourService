@@ -16,6 +16,7 @@ describe('testing server endpoints', () => {
       });
   });
 
+
   test('endpoint does not return generic Hello World!', (done) => {
     axios.get('http://localhost:3004/house/1')
       .then((res) => {

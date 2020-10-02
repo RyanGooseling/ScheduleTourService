@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import DateCarousel from './components/DateCarousel.jsx';
 import Schedule from './components/Schedule.jsx';
@@ -17,10 +18,12 @@ class Scheduler extends React.Component {
       modal: false
     };
 
+    this.setTourType = this.setTourType.bind(this);
     this.showModal = this.showModal.bind(this);
   }
 
   componentDidMount() {
+    console.log('sending get');
     axios({
       method: 'get',
       url: '/house/1'
@@ -48,6 +51,13 @@ class Scheduler extends React.Component {
       });
   }
 
+  setTourType(string) {
+    this.setState({
+      TourType: string
+    });
+    console.log(this.state);
+  }
+
   showModal() {
     if (this.state.modal) {
       this.setState({
@@ -64,10 +74,15 @@ class Scheduler extends React.Component {
     return (
       <div>
         <div>
-          <DateCarousel/>
+          <DateCarousel
+            dates={this.state.dates}
+          />
         </div>
         <div>
-          <TourType/>
+          <TourType
+            TourType={this.state.TourType}
+            setTourType={(input) => this.setTourType(input)}
+          />
         </div>
         <div>
           <Schedule
@@ -81,7 +96,6 @@ class Scheduler extends React.Component {
         <div>
           <Booker
             modal={this.state.modal}
-
           />
         </div>
       </div>
