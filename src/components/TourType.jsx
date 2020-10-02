@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 const TourType = (props) => {
 
-  const [tourType, setType] = useState('In-person');
-
   const Input = styled.div`
     display: flex;
     flex-direction: row;
@@ -33,12 +31,12 @@ const TourType = (props) => {
     border: 2px solid;
     `;
 
-  if (tourType === 'In-person') {
+  if (props.TourType === 'In-person') {
     return (
       <span>
         <Input>
-          <TourPersonSelected onClick={() => setType('In-person')}> Tour in Person </TourPersonSelected>
-          <TourVideo onClick={() => setType('Video')}> Tour via Video</TourVideo>
+          <TourPersonSelected onClick={() => props.setTourType('In-person')}> Tour in Person </TourPersonSelected>
+          <TourVideo onClick={() => props.setTourType('Video')}> Tour via Video</TourVideo>
         </Input>
       </span>
     );
@@ -46,8 +44,8 @@ const TourType = (props) => {
     return (
       <span>
         <Input>
-          <TourPerson onClick={() => setType('In-person')}> Tour in Person </TourPerson>
-          <TourVideoSelected onClick={() => setType('Video')}> Tour via Video</TourVideoSelected>
+          <TourPerson onClick={() => props.setTourType('In-person')}> Tour in Person </TourPerson>
+          <TourVideoSelected onClick={() => props.setTourType('Video')}> Tour via Video</TourVideoSelected>
         </Input>
       </span>
     );

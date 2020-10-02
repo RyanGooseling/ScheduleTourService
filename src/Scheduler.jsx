@@ -13,8 +13,10 @@ class Scheduler extends React.Component {
     this.state = {
       // place holders
       dates: [],
+      TourType: 'In-person'
     };
 
+    this.setTourType = this.setTourType.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +36,13 @@ class Scheduler extends React.Component {
       });
   }
 
+  setTourType(string) {
+    this.setState({
+      TourType: string
+    });
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div>
@@ -43,7 +52,10 @@ class Scheduler extends React.Component {
           />
         </div>
         <div>
-          <TourType/>
+          <TourType
+            TourType={this.state.TourType}
+            setTourType={(input) => this.setTourType(input)}
+          />
         </div>
         <div>
           <Schedule
