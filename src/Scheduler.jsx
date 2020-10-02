@@ -6,6 +6,7 @@ import DateCarousel from './components/DateCarousel.jsx';
 import Schedule from './components/Schedule.jsx';
 import TourType from './components/TourType.jsx';
 import StartAnOffer from './components/StartAnOffer.jsx';
+import Booker from './components/Modal/Booker.jsx';
 
 class Scheduler extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Scheduler extends React.Component {
     };
 
     this.setTourType = this.setTourType.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
 
   componentDidMount() {
@@ -43,6 +45,18 @@ class Scheduler extends React.Component {
     console.log(this.state);
   }
 
+  showModal() {
+    if (this.state.modal) {
+      this.setState({
+        modal: false
+      });
+    } else {
+      this.setState({
+        modal: true
+      });
+    }
+  }
+
   render() {
     return (
       <div>
@@ -59,14 +73,18 @@ class Scheduler extends React.Component {
         </div>
         <div>
           <Schedule
-            state={this.state}
-            // I need to pass in the type of tour as well as the date of tour...
-            // Those are both defined further down into the nested components
-            // any point of react hooks for this
+            showModal={this.showModal}
+            modal={this.state.modal}
           />
         </div>
         <div>
           <StartAnOffer/>
+        </div>
+        <div>
+          <Booker
+            modal={this.state.modal}
+
+          />
         </div>
       </div>
     );
