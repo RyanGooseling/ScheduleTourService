@@ -55,7 +55,6 @@ class Scheduler extends React.Component {
       });
   }
 
-<<<<<<< HEAD
   handleTour() {
     let newTour = {
       houseId: 1,
@@ -68,7 +67,7 @@ class Scheduler extends React.Component {
     };
     axios({
       method: 'post',
-      url: '/house',
+      url: '/house/1',
       data: newTour
     })
       .then((newData) => {
@@ -85,13 +84,13 @@ class Scheduler extends React.Component {
       .catch((err) => {
         console.log('Error', err);
       });
-=======
+  }
+
   setTourType(string) {
     this.setState({
       TourType: string
     });
     console.log(this.state);
->>>>>>> master
   }
 
   showModal() {
@@ -113,7 +112,6 @@ class Scheduler extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
     if (!this.state.modal) {
       return (
         <div className="sm-container">
@@ -132,20 +130,6 @@ class Scheduler extends React.Component {
           <div>
             <StartAnOffer/>
           </div>
-=======
-    return (
-      <div>
-        <div>
-          <DateCarousel
-            dates={this.state.dates}
-          />
-        </div>
-        <div>
-          <TourType
-            TourType={this.state.TourType}
-            setTourType={(input) => this.setTourType(input)}
-          />
->>>>>>> master
         </div>
       );
     } else {
@@ -153,11 +137,8 @@ class Scheduler extends React.Component {
         <div className="lrg-container">
           <Booker
             modal={this.state.modal}
-<<<<<<< HEAD
             onClose={this.onClose}
             handleTour={this.handleTour}
-=======
->>>>>>> master
           />
         </div>
       );

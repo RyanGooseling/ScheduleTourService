@@ -8,12 +8,12 @@ const ExtendedDateCarousel = (props) => (
       <br></br>
       <ul class='carousel'>
         <span>
-          <li class='carouselButtons'>Day1</li>
-          <li class='carouselButtons'>Day2</li>
-          <li class='carouselButtons'>Day3</li>
-          <li class='carouselButtons'>Day4</li>
-          <li class='carouselButtons'>Day5</li>
-          <li class='carouselButtons'>Day6</li>
+          <li class='carouselButton unselected'>Day1</li>
+          <li class='carouselButton unselected'>Day2</li>
+          <li class='carouselButton unselected'>Day3</li>
+          <li class='carouselButton unselected'>Day4</li>
+          <li class='carouselButton unselected'>Day5</li>
+          <li class='carouselButton unselected'>Day6</li>
         </span>
       </ul>
     </div>

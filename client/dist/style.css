@@ -22,7 +22,7 @@ body {
   margin: 0px
 }
 
-.carouselButtons {
+.carouselButton {
   display: inline-flex;
   text-align: center;
   justify-content: center;

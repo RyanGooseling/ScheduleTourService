@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 const Schedule = (props) => {
 
-<<<<<<< HEAD
-=======
   const Subscript = styled.span`
     text-align: left;
     font-size: 12px;
@@ -26,7 +24,6 @@ const Schedule = (props) => {
     }
     `;
 
->>>>>>> master
   return (
     <div>
       <SubmitSchedule onClick={() => props.showModal()}> Schedule Tour </SubmitSchedule>

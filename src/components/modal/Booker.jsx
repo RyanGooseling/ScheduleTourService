@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 const Booker = (props) => {
 
-<<<<<<< HEAD
   const Modal = styled.div`
     width: 100% px;
     height: 100% px;
@@ -24,9 +23,7 @@ const Booker = (props) => {
     padding: 1rem;
   `;
 
-  if (!props.modal) {
-    return null;
-  } else {
+  if (props.modal) {
     return (
       <Modal id="modal">
         <h2>Pick a date</h2>
@@ -43,23 +40,10 @@ const Booker = (props) => {
           </button>
         </div>
       </Modal>
-=======
-
-  if (props.modal) {
-    return (
-      <span>
-        <br></br>
-        <div>BOOKING MODAL WINDOW TO GO HERE!</div>
-      </span>
->>>>>>> master
     );
   } else {
     return null;
   }
 };
 
-<<<<<<< HEAD
 export default Booker;
-=======
-export default Booker;
->>>>>>> master
