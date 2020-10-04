@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import LeftArrow from './LeftArrow.jsx';
 import RightArrow from './RightArrow.jsx';
 import Slide from './Slide.jsx';
-import LeftArrowBooker from './modalWindow/LeftArrowBooker.jsx';
-import RightArrowBooker from './modalWindow/RightArrowBooker.jsx';
-import SlideBooker from './modalWindow/SlideBooker.jsx';
+import LeftArrowModal from './modalWindow/LeftArrowModal.jsx';
+import RightArrowModal from './modalWindow/RightArrowModal.jsx';
+import ModalSlide from './modalWindow/ModalSlide.jsx';
 
 const DateCarousel = (props) => {
 
@@ -73,20 +73,20 @@ const DateCarousel = (props) => {
       <div> Go tour this home
         <br></br>
         <SlideContainer>
-          <LeftArrowBooker
+          <LeftArrowModal
             goToPrevSlide={(e) => goToPrevSlide(e)}
             activeIndex={props.activeIndex}
             openings={props.dates}
           />
           <div className='inner-Container'>
-            <SlideBooker
+            <ModalSlide
               activeIndex={props.activeIndex}
               tourDate={props.tourDate}
               setDate={props.setDate}
               openings={props.dates}
             />
           </div>
-          <RightArrowBooker
+          <RightArrowModal
             goToNextSlide={(e) => goToNextSlide(e)}
             activeIndex={props.activeIndex}
             openings={props.dates}

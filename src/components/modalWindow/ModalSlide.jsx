@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const SlideBooker = (props) => {
+const ModalSlide = (props) => {
 
   console.log(props.activeIndex);
   const renderView = function(input) {
@@ -39,4 +39,4 @@ const SlideBooker = (props) => {
   );
 };
 
-export default SlideBooker;
+export default ModalSlide;

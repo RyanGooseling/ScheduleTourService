@@ -54,6 +54,8 @@ const TimeCarousel = (props) => {
             timeWindow={props.timeWindow}
             settimeWindow={props.settimeWindow}
             openings={props.times}
+            tourSched={props.tourSched}
+            tourDate={props.tourDate}
           />
         </div>
         <RightArrowTime

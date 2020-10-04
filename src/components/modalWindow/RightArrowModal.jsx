@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const RightArrowBooker = (props) => {
+const RightArrowModal = (props) => {
 
   const renderArrow = function() {
     if (props.activeIndex < props.openings.length - 3) {
@@ -18,4 +18,4 @@ const RightArrowBooker = (props) => {
   );
 };
 
-export default RightArrowBooker;
+export default RightArrowModal;

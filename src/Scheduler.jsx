@@ -20,9 +20,9 @@ class Scheduler extends React.Component {
       tourDate: '2020-10-04',
       tourType: 'In-person',
       times: ['09:00 - 09:30', '09:30 - 10:00', '10:00 - 10:30', '10:30 - 11:00', '11:00 - 11:30', '12:30 - 13:00', '13:00 - 13:30', '13:30 - 14:00', '14:00 - 14:30', '14:30 - 15:00', '15:00 - 15:30', '15:30 - 16:00', '16:00 - 16:30', '16:30 - 17:00', '17:00 - 17:30', '17:30 - 18:00'],
-      timeWindow: '09:30 - 10:00',
+      timeWindow: '',
       activeIndex: 1,
-      activeTimeIndex: 1
+      activeTimeIndex: 2
     };
 
     this.showModal = this.showModal.bind(this);
@@ -68,8 +68,8 @@ class Scheduler extends React.Component {
     let newTour = {
       houseId: 1,
       schedule: {
-        date: this.state.tourDate, // from the react hook?
-        timeWindow: this.state.timeWindow, // from the react hook?
+        date: this.state.tourDate,
+        timeWindow: this.state.timeWindow,
         walkthrough: this.state.tourType,
         booking: true
       }
@@ -82,7 +82,6 @@ class Scheduler extends React.Component {
     })
       .then((newData) => {
         console.log('Succesful submission returned');
-        console.log(newData.data);
         let rawData = newData.data;
         let fullSched = {};
         rawData.forEach(element => {
@@ -93,7 +92,6 @@ class Scheduler extends React.Component {
             fullSched[tourDate].push(element.schedule.timeWindow);
           }
         });
-        console.log('Updated Full Schedule: ', fullSched);
         this.setState({
           data: rawData,
           tourSched: fullSched,
@@ -146,7 +144,8 @@ class Scheduler extends React.Component {
       });
     } else {
       this.setState({
-        modal: true
+        modal: true,
+        activeIndex: 2,
       });
     }
   }
@@ -207,6 +206,7 @@ class Scheduler extends React.Component {
             setIndex={this.setIndex}
             activeTimeIndex={this.state.activeTimeIndex}
             setTimeIndex={this.setTimeIndex}
+            tourSched={this.state.tourSched}
           />
         </div>
       );

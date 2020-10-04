@@ -47,6 +47,8 @@ const Booker = (props) => {
           settimeWindow={props.settimeWindow}
           activeTimeIndex={props.activeTimeIndex}
           setTimeIndex={props.setTimeIndex}
+          tourSched={props.tourSched}
+          tourDate={props.tourDate}
         />
         <div class="actions">
           <button class="toggle-button"

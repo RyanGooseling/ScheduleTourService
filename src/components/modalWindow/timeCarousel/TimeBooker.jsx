@@ -4,10 +4,16 @@ import styled from 'styled-components';
 const TimeBooker = (props) => {
 
   const renderView = function(input) {
+    let currentDate = [props.tourDate + 'T00:00:00.000Z'];
+    console.log(props.tourSched[currentDate]);
+    console.log(input);
+
     let currentIndex = props.openings.indexOf(input);
     let newClassName;
     if (currentIndex <= props.activeIndex + 2 && currentIndex >= props.activeIndex - 2) {
-      if (input === props.timeWindow) {
+      if (props.tourSched[currentDate].includes(input)) {
+        newClassName = 'carouselButtons-Time disabled';
+      } else if (input === props.timeWindow) {
         newClassName = 'carouselButtons-Time selected';
       } else {
         newClassName = 'carouselButtons-Time unselected';

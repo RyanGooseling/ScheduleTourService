@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const LeftArrowBooker = (props) => {
+const LeftArrowModal = (props) => {
 
   const renderArrow = function() {
     if (props.activeIndex > 2) {
@@ -18,4 +18,4 @@ const LeftArrowBooker = (props) => {
   );
 };
 
-export default LeftArrowBooker;
+export default LeftArrowModal;
