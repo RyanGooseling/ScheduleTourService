@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const SlideBooker = (props) => {
 
+  console.log(props.activeIndex);
   const renderView = function(input) {
     let currentIndex = props.openings.indexOf(input);
     let newClassName;

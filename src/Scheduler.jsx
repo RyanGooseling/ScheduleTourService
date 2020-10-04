@@ -7,7 +7,7 @@ import Schedule from './components/Schedule.jsx';
 import TourType from './components/TourType.jsx';
 import StartAnOffer from './components/StartAnOffer.jsx';
 import Booker from './components/modalWindow/Booker.jsx';
-import TimeCarousel from './components/modalWindow/TimeCarousel.jsx';
+import TimeCarousel from './components/modalWindow/timeCarousel/TimeCarousel.jsx';
 
 class Scheduler extends React.Component {
   constructor(props) {
@@ -15,12 +15,24 @@ class Scheduler extends React.Component {
     this.state = {
       data: '',
       tourSched: {},
-      modal: false
+      modal: false,
+      dates: ['2020-10-03', '2020-10-04', '2020-10-05', '2020-10-06', '2020-10-07', '2020-10-08', '2020-10-09', '2020-10-10', '2020-10-11', '2020-10-12', '2020-10-13', '2020-10-14', '2020-10-15', '2020-10-16', '2020-10-17', '2020-10-18', '2020-10-19', '2020-10-20', '2020-10-21', '2020-10-22', '2020-10-23', '2020-10-24', '2020-10-25', '2020-10-26', '2020-10-27', '2020-10-28', '2020-10-29', '2020-10-30', '2020-10-31', '2020-11-01', '2020-11-02'],
+      tourDate: '2020-10-04',
+      tourType: 'In-person',
+      times: ['09:00 - 09:30', '09:30 - 10:00', '10:00 - 10:30', '10:30 - 11:00', '11:00 - 11:30', '12:30 - 13:00', '13:00 - 13:30', '13:30 - 14:00', '14:00 - 14:30', '14:30 - 15:00', '15:00 - 15:30', '15:30 - 16:00', '16:00 - 16:30', '16:30 - 17:00', '17:00 - 17:30', '17:30 - 18:00'],
+      timeWindow: '09:30 - 10:00',
+      activeIndex: 1,
+      activeTimeIndex: 1
     };
 
     this.showModal = this.showModal.bind(this);
     this.onClose = this.onClose.bind(this);
     this.handleTour = this.handleTour.bind(this);
+    this.setDate = this.setDate.bind(this);
+    this.settourType = this.settourType.bind(this);
+    this.settimeWindow = this.settimeWindow.bind(this);
+    this.setIndex = this.setIndex.bind(this);
+    this.setTimeIndex = this.setTimeIndex.bind(this);
   }
 
   componentDidMount() {
@@ -41,11 +53,11 @@ class Scheduler extends React.Component {
             fullSched[tourDate].push(element.schedule.timeWindow);
           }
         });
+        console.log('On Mount Full Schedule: ', fullSched);
         this.setState({
           data: rawData,
           tourSched: fullSched,
         });
-        console.log(this.state.tourSched);
       })
       .catch((err) => {
         console.log('Error', err);
@@ -56,12 +68,13 @@ class Scheduler extends React.Component {
     let newTour = {
       houseId: 1,
       schedule: {
-        date: tourDate, // from the react hook?
-        timeWindow: timeWindow, // from the react hook?
-        walkThrough: this.state.TourType,
+        date: this.state.tourDate, // from the react hook?
+        timeWindow: this.state.timeWindow, // from the react hook?
+        walkthrough: this.state.tourType,
         booking: true
       }
     };
+    console.log(newTour);
     axios({
       method: 'post',
       url: '/house/1',
@@ -69,10 +82,22 @@ class Scheduler extends React.Component {
     })
       .then((newData) => {
         console.log('Succesful submission returned');
-        this.setState({
-          dates: newData.data,
+        console.log(newData.data);
+        let rawData = newData.data;
+        let fullSched = {};
+        rawData.forEach(element => {
+          let tourDate = element.schedule.date;
+          if (fullSched[tourDate] === undefined) {
+            fullSched[tourDate] = [element.schedule.timeWindow];
+          } else {
+            fullSched[tourDate].push(element.schedule.timeWindow);
+          }
         });
-        console.log(newData.data[0]);
+        console.log('Updated Full Schedule: ', fullSched);
+        this.setState({
+          data: rawData,
+          tourSched: fullSched,
+        });
       })
       .then(() => {
         this.setState({
@@ -84,7 +109,35 @@ class Scheduler extends React.Component {
       });
   }
 
+  setDate(input) {
+    this.setState({
+      tourDate: input
+    });
+  }
 
+  settourType(input) {
+    this.setState({
+      tourType: input
+    });
+  }
+
+  settimeWindow(input) {
+    this.setState({
+      timeWindow: input
+    });
+  }
+
+  setIndex(input) {
+    this.setState({
+      activeIndex: input
+    });
+  }
+
+  setTimeIndex(input) {
+    this.setState({
+      activeTimeIndex: input
+    });
+  }
 
   showModal() {
     if (this.state.modal) {
@@ -111,10 +164,17 @@ class Scheduler extends React.Component {
           <div>
             <DateCarousel
               modal={this.state.modal}
+              dates={this.state.dates}
+              setDate={this.setDate}
+              tourDate={this.state.tourDate}
+              activeIndex={this.state.activeIndex}
+              setIndex={this.setIndex}
             />
           </div>
           <div>
             <TourType
+              settourType={this.settourType}
+              tourType={this.state.tourType}
             />
           </div>
           <div>
@@ -135,6 +195,18 @@ class Scheduler extends React.Component {
             modal={this.state.modal}
             onClose={this.onClose}
             handleTour={this.handleTour}
+            dates={this.state.dates}
+            setDate={this.setDate}
+            tourDate={this.state.tourDate}
+            settourType={this.settourType}
+            tourType={this.state.tourType}
+            times={this.state.times}
+            timeWindow={this.state.timeWindow}
+            settimeWindow={this.settimeWindow}
+            activeIndex={this.state.activeIndex}
+            setIndex={this.setIndex}
+            activeTimeIndex={this.state.activeTimeIndex}
+            setTimeIndex={this.setTimeIndex}
           />
         </div>
       );

@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/house/:houseId', (req, res) => {
-  debugger;
   console.log('House ID: ', req.params.houseId);
   Tour.find({houseId: req.params.houseId})
     .then((tours) => {
@@ -37,11 +36,11 @@ app.get('/house/:houseId', (req, res) => {
 });
 
 app.post('/house/:houseId', (req, res) => {
-  debugger;
   console.log('House ID: ', req.params.houseId);
   // define request body as new booking to be added
   const booking = req.body;
   // insert new booking into db
+  console.log('New insert of: ', booking);
   Tour.insertMany(booking)
     .then(() => {
       console.log('Successful POST insert');

@@ -28,7 +28,7 @@ const TimeBooker = (props) => {
         return (
           <div
             className={renderView(time)}
-            onClick={() => props.setTimeWindow(time)}
+            onClick={() => props.settimeWindow(time)}
           >
             <h1>{time}</h1>
           </div>

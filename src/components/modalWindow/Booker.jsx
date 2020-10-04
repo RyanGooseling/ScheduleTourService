@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import TourType from '../TourType.jsx';
 import DateCarousel from '../DateCarousel.jsx';
-import TimeCarousel from './TimeCarousel.jsx';
+import TimeCarousel from './timeCarousel/TimeCarousel.jsx';
 import styled from 'styled-components';
 
 const Booker = (props) => {
@@ -29,14 +29,28 @@ const Booker = (props) => {
         <h2>Pick a date</h2>
         <DateCarousel
           modal={props.modal}
+          tourDate={props.tourDate}
+          setDate={props.setDate}
+          dates={props.dates}
+          activeIndex={props.activeIndex}
+          setIndex={props.setIndex}
         />
         <h2>How would you like to tour?</h2>
-        <TourType />
+        <TourType
+          settourType={props.settourType}
+          tourType={props.tourType}
+        />
         <h2>Pick a time</h2>
-        <TimeCarousel />
+        <TimeCarousel
+          times={props.times}
+          timeWindow={props.timeWindow}
+          settimeWindow={props.settimeWindow}
+          activeTimeIndex={props.activeTimeIndex}
+          setTimeIndex={props.setTimeIndex}
+        />
         <div class="actions">
           <button class="toggle-button"
-            onClick={() => (console.log(props), props.handleTour())}
+            onClick={() => props.handleTour()}
           >
             Book and Return
           </button>

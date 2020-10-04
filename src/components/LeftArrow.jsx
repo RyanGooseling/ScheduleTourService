@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const LeftArrow = (props) => {
 
   const renderArrow = function() {
-    console.log(props.activeIndex);
     if (props.activeIndex > 1) {
       return '<';
     } else {
