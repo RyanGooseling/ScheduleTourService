@@ -36,7 +36,7 @@ const Booker = (props) => {
         <TimeCarousel />
         <div class="actions">
           <button class="toggle-button"
-            onClick={() => props.handleTour()}
+            onClick={() => (console.log(props), props.handleTour())}
           >
             Book and Return
           </button>
