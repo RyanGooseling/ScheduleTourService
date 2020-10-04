@@ -36,18 +36,6 @@ body {
   border-radius: 2px 2px 2px 2px;
 }
 
-.inactive {
-  display: none;
-}
-
-.selected {
-  border: 2px solid
-}
-.unselected {
-  border: 1px solid;
-  border-radius: 2px 2px 2px 2px
-}
-
 .carouselButtons-Time {
   display: inline-flex;
   font-size: xx-small;
@@ -64,6 +52,20 @@ body {
   border: 1px solid;
   border-radius: 2px 2px 2px 2px
 }
+
+.inactive {
+  display: none;
+}
+
+.selected {
+  border: 2px solid
+}
+.unselected {
+  border: 1px solid;
+  border-radius: 2px 2px 2px 2px
+}
+
+
 
 .submit {
   width: 100%;
