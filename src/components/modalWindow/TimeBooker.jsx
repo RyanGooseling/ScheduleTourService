@@ -1,19 +1,19 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const Slide = (props) => {
+const TimeBooker = (props) => {
 
   const renderView = function(input) {
     let currentIndex = props.openings.indexOf(input);
     let newClassName;
-    if (currentIndex <= props.activeIndex + 1 && currentIndex >= props.activeIndex - 1) {
-      if (input === props.tourDate) {
-        newClassName = 'carouselButton selected';
+    if (currentIndex <= props.activeIndex + 2 && currentIndex >= props.activeIndex - 2) {
+      if (input === props.timeWindow) {
+        newClassName = 'carouselButtons-Time selected';
       } else {
-        newClassName = 'carouselButton unselected';
+        newClassName = 'carouselButtons-Time unselected';
       }
     } else {
-      if (input === props.tourDate) {
+      if (input === props.timeWindow) {
         newClassName = 'inactive selected';
       } else {
         newClassName = 'inactive unselected';
@@ -24,13 +24,13 @@ const Slide = (props) => {
 
   return (
     <section>
-      {props.openings.map((date) => {
+      {props.openings.map((time) => {
         return (
           <div
-            className={renderView(date)}
-            onClick={() => props.setDate(date)}
+            className={renderView(time)}
+            onClick={() => props.setTimeWindow(time)}
           >
-            <h1>{date}</h1>
+            <h1>{time}</h1>
           </div>
         );
       })}
@@ -38,4 +38,4 @@ const Slide = (props) => {
   );
 };
 
-export default Slide;
+export default TimeBooker;

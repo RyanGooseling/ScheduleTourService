@@ -6,21 +6,18 @@ import DateCarousel from './components/DateCarousel.jsx';
 import Schedule from './components/Schedule.jsx';
 import TourType from './components/TourType.jsx';
 import StartAnOffer from './components/StartAnOffer.jsx';
-import Booker from './components/Modal/Booker.jsx';
-import TimeCarousel from './components/Modal/TimeCarousel.jsx';
-import ExtendedDateCarousel from './components/Modal/ExtendedDateCarousel.jsx';
+import Booker from './components/modalWindow/Booker.jsx';
+import TimeCarousel from './components/modalWindow/TimeCarousel.jsx';
 
 class Scheduler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: '',
-      tourType: 'In-person',
       tourSched: {},
       modal: false
     };
 
-    this.setTourType = this.setTourType.bind(this);
     this.showModal = this.showModal.bind(this);
     this.onClose = this.onClose.bind(this);
     this.handleTour = this.handleTour.bind(this);
@@ -59,8 +56,8 @@ class Scheduler extends React.Component {
     let newTour = {
       houseId: 1,
       schedule: {
-        date: '',
-        timeWindow: '',
+        date: tourDate, // from the react hook?
+        timeWindow: timeWindow, // from the react hook?
         walkThrough: this.state.TourType,
         booking: true
       }
@@ -75,6 +72,7 @@ class Scheduler extends React.Component {
         this.setState({
           dates: newData.data,
         });
+        console.log(newData.data[0]);
       })
       .then(() => {
         this.setState({
@@ -86,12 +84,7 @@ class Scheduler extends React.Component {
       });
   }
 
-  setTourType(string) {
-    this.setState({
-      TourType: string
-    });
-    console.log(this.state);
-  }
+
 
   showModal() {
     if (this.state.modal) {
@@ -116,10 +109,13 @@ class Scheduler extends React.Component {
       return (
         <div className="sm-container">
           <div>
-            <DateCarousel/>
+            <DateCarousel
+              modal={this.state.modal}
+            />
           </div>
           <div>
-            <TourType/>
+            <TourType
+            />
           </div>
           <div>
             <Schedule

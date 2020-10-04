@@ -1,22 +1,21 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const LeftArrow = (props) => {
+const RightArrowTime = (props) => {
 
   const renderArrow = function() {
-    console.log(props.activeIndex);
-    if (props.activeIndex > 1) {
-      return '<';
+    if (props.activeIndex < props.openings.length - 3) {
+      return '>';
     } else {
       return '';
     }
   };
 
   return (
-    <div className= 'backArrow' onClick={props.goToPrevSlide}>
+    <div className= 'forwardArrow' onClick={props.goToNextSlide}>
       <i>{renderArrow()}</i>
     </div>
   );
 };
 
-export default LeftArrow;
+export default RightArrowTime;

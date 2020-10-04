@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const RightArrow = (props) => {
-
+const RightArrowBooker = (props) => {
+  console.log(props.activeIndex);
+  console.log(props.openings);
+  console.log((props.activeIndex < props.openings.length - 3));
 
   const renderArrow = function() {
-    if (props.activeIndex < props.openings.length - 2) {
+    if (props.activeIndex < props.openings.length - 3) {
+      console.log('should be here');
       return '>';
     } else {
       return '';
@@ -19,4 +22,4 @@ const RightArrow = (props) => {
   );
 };
 
-export default RightArrow;
+export default RightArrowBooker;

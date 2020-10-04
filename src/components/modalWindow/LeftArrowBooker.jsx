@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const LeftArrow = (props) => {
+const LeftArrowBooker = (props) => {
 
   const renderArrow = function() {
-    console.log(props.activeIndex);
-    if (props.activeIndex > 1) {
+    if (props.activeIndex > 2) {
       return '<';
     } else {
       return '';
@@ -19,4 +18,4 @@ const LeftArrow = (props) => {
   );
 };
 
-export default LeftArrow;
+export default LeftArrowBooker;

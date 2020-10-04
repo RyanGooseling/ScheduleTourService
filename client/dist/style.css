@@ -50,6 +50,7 @@ body {
 
 .carouselButtons-Time {
   display: inline-flex;
+  font-size: xx-small;
   text-align: center;
   justify-content: center;
   width: 108px;

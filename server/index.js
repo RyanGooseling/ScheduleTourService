@@ -46,18 +46,15 @@ app.post('/house/:houseId', (req, res) => {
     .then(() => {
       console.log('Successful POST insert');
       // after inserting the new booking, return the db now including new booking
-      Tour.find({houseId: req.params.houseId});
-    })
-    // the Tour.find above needs a promise or a ".then" itself in order to return something. This functin has an undefined "tours" below because it's still waiting for Tour.find to return something.
-    .then((tours) => {
-      console.log('Successful return of new db from POST');
-      // sort soonest to latest
-      console.log('ERROR BECAUSE INPUT FOR THEN STATEMENT IS NOT RETURNED. ANOTHER LAYER OF PROMISES IS NEEDED HERE');
-      tours.sort((a, b) => {
-        return a.schedule.date - a.schedule.date;
-      });
-      res.send(tours);
-      res.end();
+      Tour.find({houseId: req.params.houseId})
+        .then((tours) => {
+          console.log('Successful return of new db from POST');
+          tours.sort((a, b) => {
+            return a.schedule.date - a.schedule.date;
+          });
+          res.send(tours);
+          res.end();
+        });
     })
     .catch((err) => {
       console.log('Error: ', err);

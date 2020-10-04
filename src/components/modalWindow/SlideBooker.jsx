@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const Slide = (props) => {
+const SlideBooker = (props) => {
 
   const renderView = function(input) {
     let currentIndex = props.openings.indexOf(input);
     let newClassName;
-    if (currentIndex <= props.activeIndex + 1 && currentIndex >= props.activeIndex - 1) {
+    if (currentIndex <= props.activeIndex + 2 && currentIndex >= props.activeIndex - 2) {
       if (input === props.tourDate) {
         newClassName = 'carouselButton selected';
       } else {
@@ -38,4 +38,4 @@ const Slide = (props) => {
   );
 };
 
-export default Slide;
+export default SlideBooker;

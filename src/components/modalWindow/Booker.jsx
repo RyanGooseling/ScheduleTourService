@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import TourType from '../TourType.jsx';
-import ExtendedDateCarousel from './ExtendedDateCarousel.jsx';
+import DateCarousel from '../DateCarousel.jsx';
 import TimeCarousel from './TimeCarousel.jsx';
 import styled from 'styled-components';
 
@@ -27,7 +27,9 @@ const Booker = (props) => {
     return (
       <Modal id="modal">
         <h2>Pick a date</h2>
-        <ExtendedDateCarousel />
+        <DateCarousel
+          modal={props.modal}
+        />
         <h2>How would you like to tour?</h2>
         <TourType />
         <h2>Pick a time</h2>
