@@ -36,14 +36,13 @@ class Scheduler extends React.Component {
   }
 
   componentDidMount() {
-    console.log('sending get');
+    console.log('Sending Get Request');
     axios({
       method: 'get',
       url: '/house/1'
     })
       .then((newData) => {
         let rawData = newData.data;
-        console.log(rawData);
         let fullSched = {};
         rawData.forEach(element => {
           let tourDate = element.schedule.date;

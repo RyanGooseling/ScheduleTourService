@@ -23,7 +23,12 @@ const StartAnOffer = (props) => {
     display: inline-block;
     height: 40px;
     padding: 12px 1.5rem;
-    border-radius: 2px 2px 2px 2px
+    border-radius: 2px 2px 2px 2px;
+    border: 1px solid #ccc;
+
+    &:hover {
+      background-color: darkgray;
+    }
   `;
 
 

@@ -6,7 +6,7 @@ const Schedule = (props) => {
   const Subscript = styled.span`
     text-align: left;
     font-size: 12px;
-    `;
+  `;
 
   const SubmitSchedule = styled.button`
     width: 100%;
@@ -18,6 +18,7 @@ const Schedule = (props) => {
     height: 40px;
     padding: 12px 1.5rem;
     border-radius: 2px 2px 2px 2px;
+    border: 1px solid #ccc;
 
     &:hover {
       background-color: cornflowerblue;

@@ -7,12 +7,12 @@ const TourType = (props) => {
   const Input = styled.div`
     display: flex;
     flex-direction: row;
-    cursor: pointer;
     height: 48px;
     `;
 
   const TourPerson = styled.div`
     display: flex;
+    cursor: pointer;
     width: 144px;
     justify-content: center;
     align-items: center;
@@ -21,15 +21,26 @@ const TourType = (props) => {
     text-align: center;
     box-sizing: border-box;
     border-radius: 2px 2px 2px 2px;
+    border: 1px solid #ccc;
+
+    &:hover {
+      border: 1px solid darkgray;
+    }
     `;
   const TourPersonSelected = styled(TourPerson)`
     border: 2px solid;
+    &:hover {
+      border: 2px solid;
+    }
     `;
   const TourVideo = styled(TourPerson)`
     width: 168px;
     `;
   const TourVideoSelected = styled(TourVideo)`
     border: 2px solid;
+    &:hover {
+      border: 2px solid;
+    }
     `;
 
   if (props.tourType === 'In-person') {
@@ -37,7 +48,7 @@ const TourType = (props) => {
       <span>
         <Input>
           <TourPersonSelected onClick={() => props.settourType('In-person')}> Tour in Person </TourPersonSelected>
-          <TourVideo onClick={() => props.settourType('Video')}> Tour via Video</TourVideo>
+          <TourVideo onClick={() => props.settourType('Video')}> Tour via Video Chat</TourVideo>
         </Input>
       </span>
     );
@@ -46,7 +57,7 @@ const TourType = (props) => {
       <span>
         <Input>
           <TourPerson onClick={() => props.settourType('In-person')}> Tour in Person </TourPerson>
-          <TourVideoSelected onClick={() => props.settourType('Video')}> Tour via Video</TourVideoSelected>
+          <TourVideoSelected onClick={() => props.settourType('Video')}> Tour via Video Chat</TourVideoSelected>
         </Input>
       </span>
     );

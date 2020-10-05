@@ -22,6 +22,21 @@ const Slide = (props) => {
     return newClassName;
   };
 
+  const getMonth = function(input) {
+    let month = input.slice(5, 7);
+    let months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    return months[month - 1];
+  };
+
+  const DayTile = styled.div`
+    vertical-align: center;
+    margin: 12px;
+    font-size: 24px
+  `;
+  const MonthTile = styled.div`
+    vertical-align: baseline
+  `;
+
   return (
     <section>
       {props.openings.map((date) => {
@@ -30,7 +45,8 @@ const Slide = (props) => {
             className={renderView(date)}
             onClick={() => props.setDate(date)}
           >
-            <h1>{date}</h1>
+            <DayTile>{date.slice(-2)}</DayTile>
+            <MonthTile>{getMonth(date)}</MonthTile>
           </div>
         );
       })}

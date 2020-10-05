@@ -5,8 +5,6 @@ const TimeBooker = (props) => {
 
   const renderView = function(input) {
     let currentDate = [props.tourDate + 'T00:00:00.000Z'];
-    console.log(props.tourSched[currentDate]);
-    console.log(input);
 
     let currentIndex = props.openings.indexOf(input);
     let newClassName;
@@ -28,6 +26,14 @@ const TimeBooker = (props) => {
     return newClassName;
   };
 
+  const Time = styled.div`
+    font-size: 16px;
+    text-align: top;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+  `;
+
   return (
     <section>
       {props.openings.map((time) => {
@@ -36,7 +42,7 @@ const TimeBooker = (props) => {
             className={renderView(time)}
             onClick={() => props.settimeWindow(time)}
           >
-            <h1>{time}</h1>
+            <Time>{time.slice(0, 5)}</Time>
           </div>
         );
       })}
