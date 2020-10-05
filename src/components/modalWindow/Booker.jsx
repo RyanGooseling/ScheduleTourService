@@ -23,6 +23,22 @@ const Booker = (props) => {
     padding: 1rem;
   `;
 
+  const SubmitReturn = styled.button`
+  width: 100%;
+  color: white;
+  background-color: blue;
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 40px;
+  padding: 12px 1.5rem;
+  border-radius: 2px 2px 2px 2px;
+
+  &:hover {
+    background-color: cornflowerblue;
+  }
+  `;
+
   if (props.modal) {
     return (
       <Modal id="modal">
@@ -51,11 +67,11 @@ const Booker = (props) => {
           tourDate={props.tourDate}
         />
         <div class="actions">
-          <button class="toggle-button"
+          <SubmitReturn
             onClick={() => props.handleTour()}
           >
             Book and Return
-          </button>
+          </SubmitReturn>
         </div>
       </Modal>
     );

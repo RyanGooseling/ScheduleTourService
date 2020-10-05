@@ -70,8 +70,7 @@ const DateCarousel = (props) => {
     );
   } else {
     return (
-      <div> Go tour this home
-        <br></br>
+      <div>
         <SlideContainer>
           <LeftArrowModal
             goToPrevSlide={(e) => goToPrevSlide(e)}

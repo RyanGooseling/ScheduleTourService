@@ -40,7 +40,7 @@ const TimeCarousel = (props) => {
   `;
 
   return (
-    <div> Go tour this home
+    <div>
       <br></br>
       <SlideContainer>
         <LeftArrowTime
