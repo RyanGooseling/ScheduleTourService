@@ -26,7 +26,7 @@ class Scheduler extends React.Component {
     console.log('sending get');
     axios({
       method: 'get',
-      url: '/house/1'
+      url: '/homes/1/schedule'
     })
       .then((newData) => {
         let rawData = newData.data;

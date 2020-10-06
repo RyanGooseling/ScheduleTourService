@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/house/:houseId', (req, res) => {
+app.get('/homes/:houseId/schedule', (req, res) => {
   debugger;
   console.log('House ID: ', req.params.houseId);
   Tour.find({houseId: req.params.houseId})
@@ -36,7 +36,7 @@ app.get('/house/:houseId', (req, res) => {
     });
 });
 
-app.post('/house/:houseId', (req, res) => {
+app.post('/homes/:houseId/schedule', (req, res) => {
   debugger;
   console.log('House ID: ', req.params.houseId);
   // define request body as new booking to be added
