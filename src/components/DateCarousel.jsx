@@ -49,7 +49,7 @@ const DateCarousel = (props) => {
           openings={props.dates}
           modal={props.modal}
         />
-        <div className='inner-Container'>
+        <div>
           <Slide
             activeIndex={props.activeIndex}
             tourDate={props.tourDate}

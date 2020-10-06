@@ -20,10 +20,16 @@ const RightArrow = (props) => {
     }
   };
 
+  const ForwardArrow = styled.div`
+  `;
+  const ForwardArrowDisabled = styled(ForwardArrow)`
+    opacity: 0.3
+  `;
+
   return (
-    <div className= 'forwardArrow' onClick={props.goToNextSlide}>
+    <ForwardArrow onClick={props.goToNextSlide}>
       <i>{renderArrow()}</i>
-    </div>
+    </ForwardArrow>
   );
 };
 

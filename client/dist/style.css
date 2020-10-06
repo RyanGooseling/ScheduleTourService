@@ -7,13 +7,6 @@ body {
   display: block
 }
 
-.sm-container {
-  width: 313px
-}
-.lrg-container {
-  width: 618px
-}
-
 .carousel {
   display: inline-flex;
   justify-content: center;
@@ -74,26 +67,4 @@ body {
 .disabled {
   opacity: 0.3;
   cursor: unset;
-}
-
-.submit {
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-  display: inline-block;
-  height: 40px;
-  padding: 12px 1.5rem;
-  border-radius: 2px 2px 2px 2px
-}
-
-.subscript {
-  text-align: left;
-  font-size: 12px;
-}
-
-.backArrow-disabled {
-  opacity: 0.3
-}
-.forwardArrow-disabled {
-  opacity: 0.3
 }

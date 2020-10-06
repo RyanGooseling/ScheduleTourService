@@ -19,10 +19,16 @@ const LeftArrow = (props) => {
     }
   };
 
+  const BackArrow = styled.div`
+  `;
+  const BackArrowDisabled = styled(BackArrow)`
+    opacity: 0.3
+  `;
+
   return (
-    <div className= 'backArrow' onClick={props.goToPrevSlide}>
+    <BackArrow onClick={props.goToPrevSlide}>
       <i>{renderArrow()}</i>
-    </div>
+    </BackArrow>
   );
 };
 

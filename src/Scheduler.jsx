@@ -125,10 +125,21 @@ class Scheduler extends React.Component {
     });
   }
 
+
+
   render() {
+
+    const SmContainer = styled.div`
+      width: 313px
+    `;
+
+    const LrgContainer = styled.div`
+      width: 618px
+    `;
+
     if (!this.state.modal) {
       return (
-        <div className="sm-container">
+        <SmContainer>
           <div>
             <DateCarousel
               modal={this.state.modal}
@@ -153,18 +164,18 @@ class Scheduler extends React.Component {
           <div>
             <StartAnOffer/>
           </div>
-        </div>
+        </SmContainer>
       );
     } else {
       return (
-        <div className="lrg-container">
+        <LrgContainer>
           <Booker
             state={this.state}
             onClose={this.onClose}
             handleTour={this.handleTour}
             setStateProp={this.setStateProp}
           />
-        </div>
+        </LrgContainer>
       );
     }
   }
