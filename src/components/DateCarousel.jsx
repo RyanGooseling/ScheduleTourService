@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import LeftArrow from './LeftArrow.jsx';
 import RightArrow from './RightArrow.jsx';
 import Slide from './Slide.jsx';
-import ModalSlide from './modalWindow/ModalSlide.jsx';
 
 const DateCarousel = (props) => {
 
@@ -17,7 +16,7 @@ const DateCarousel = (props) => {
     } else {
       index--;
     }
-    props.setIndex(index);
+    props.setStateProp('activeIndex', index);
   };
 
   const goToNextSlide = function(e) {
@@ -30,7 +29,7 @@ const DateCarousel = (props) => {
     } else {
       index++;
     }
-    props.setIndex(index);
+    props.setStateProp('activeIndex', index);
   };
 
   const SlideContainer = styled.div`
@@ -54,7 +53,7 @@ const DateCarousel = (props) => {
           <Slide
             activeIndex={props.activeIndex}
             tourDate={props.tourDate}
-            setDate={props.setDate}
+            setStateProp={props.setStateProp}
             openings={props.dates}
             modal={props.modal}
           />

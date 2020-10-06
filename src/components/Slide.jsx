@@ -12,7 +12,6 @@ const Slide = (props) => {
     } else {
       adjacentSlides = 2;
     }
-    console.log(adjacentSlides);
     if (currentIndex <= props.activeIndex + adjacentSlides && currentIndex >= props.activeIndex - adjacentSlides) {
       if (input === props.tourDate) {
         newClassName = 'carouselButton selected';
@@ -50,7 +49,7 @@ const Slide = (props) => {
         return (
           <div
             className={renderView(date)}
-            onClick={() => props.setDate(date)}
+            onClick={() => props.setStateProp('tourDate', date)}
           >
             <DayTile>{date.slice(-2)}</DayTile>
             <MonthTile>{getMonth(date)}</MonthTile>

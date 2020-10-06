@@ -40,7 +40,7 @@ const TimeBooker = (props) => {
         return (
           <div
             className={renderView(time)}
-            onClick={() => props.settimeWindow(time)}
+            onClick={() => props.setStateProp('timeWindow', time)}
           >
             <Time>{time.slice(0, 5)}</Time>
           </div>

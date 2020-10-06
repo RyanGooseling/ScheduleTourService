@@ -47,8 +47,8 @@ const TourType = (props) => {
     return (
       <span>
         <Input>
-          <TourPersonSelected onClick={() => props.settourType('In-person')}> Tour in Person </TourPersonSelected>
-          <TourVideo onClick={() => props.settourType('Video')}> Tour via Video Chat</TourVideo>
+          <TourPersonSelected onClick={() => props.setStateProp('tourType', 'In-person')}> Tour in Person </TourPersonSelected>
+          <TourVideo onClick={() => props.setStateProp('tourType', 'Video')}> Tour via Video Chat</TourVideo>
         </Input>
       </span>
     );
@@ -56,8 +56,8 @@ const TourType = (props) => {
     return (
       <span>
         <Input>
-          <TourPerson onClick={() => props.settourType('In-person')}> Tour in Person </TourPerson>
-          <TourVideoSelected onClick={() => props.settourType('Video')}> Tour via Video Chat</TourVideoSelected>
+          <TourPerson onClick={() => props.setStateProp('tourType', 'In-person')}> Tour in Person </TourPerson>
+          <TourVideoSelected onClick={() => props.setStateProp('tourType', 'Video')}> Tour via Video Chat</TourVideoSelected>
         </Input>
       </span>
     );

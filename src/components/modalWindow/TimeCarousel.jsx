@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import LeftArrow from '../../LeftArrow.jsx';
-import RightArrow from '../../RightArrow.jsx';
+import LeftArrow from '../LeftArrow.jsx';
+import RightArrow from '../RightArrow.jsx';
 import TimeBooker from './TimeBooker.jsx';
 
 const TimeCarousel = (props) => {
@@ -16,7 +16,7 @@ const TimeCarousel = (props) => {
     } else {
       index--;
     }
-    props.setTimeIndex(index);
+    props.setStateProp('activeTimeIndex', index);
   };
 
   const goToNextTime = function(e) {
@@ -29,7 +29,7 @@ const TimeCarousel = (props) => {
     } else {
       index++;
     }
-    props.setTimeIndex(index);
+    props.setStateProp('activeTimeIndex', index);
   };
 
   const SlideContainer = styled.div`
@@ -52,7 +52,7 @@ const TimeCarousel = (props) => {
           <TimeBooker
             activeIndex={props.activeTimeIndex}
             timeWindow={props.timeWindow}
-            settimeWindow={props.settimeWindow}
+            setStateProp={props.setStateProp}
             openings={props.times}
             tourSched={props.tourSched}
             tourDate={props.tourDate}

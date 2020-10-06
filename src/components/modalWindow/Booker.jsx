@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import TourType from '../TourType.jsx';
 import DateCarousel from '../DateCarousel.jsx';
-import TimeCarousel from './timeCarousel/TimeCarousel.jsx';
+import TimeCarousel from './TimeCarousel.jsx';
 import styled from 'styled-components';
 
 const Booker = (props) => {
@@ -39,32 +39,30 @@ const Booker = (props) => {
     }
   `;
 
-  if (props.modal) {
+  if (props.state.modal) {
     return (
       <Modal id="modal">
         <h2>Pick a date</h2>
         <DateCarousel
-          modal={props.modal}
-          tourDate={props.tourDate}
-          setDate={props.setDate}
-          dates={props.dates}
-          activeIndex={props.activeIndex}
-          setIndex={props.setIndex}
+          modal={props.state.modal}
+          tourDate={props.state.tourDate}
+          setStateProp={props.setStateProp}
+          dates={props.state.dates}
+          activeIndex={props.state.activeIndex}
         />
         <h2>How would you like to tour?</h2>
         <TourType
-          settourType={props.settourType}
-          tourType={props.tourType}
+          setStateProp={props.setStateProp}
+          tourType={props.state.tourType}
         />
         <h2>Pick a time</h2>
         <TimeCarousel
-          times={props.times}
-          timeWindow={props.timeWindow}
-          settimeWindow={props.settimeWindow}
-          activeTimeIndex={props.activeTimeIndex}
-          setTimeIndex={props.setTimeIndex}
-          tourSched={props.tourSched}
-          tourDate={props.tourDate}
+          times={props.state.times}
+          timeWindow={props.state.timeWindow}
+          setStateProp={props.setStateProp}
+          activeTimeIndex={props.state.activeTimeIndex}
+          tourSched={props.state.tourSched}
+          tourDate={props.state.tourDate}
         />
         <div class="actions">
           <SubmitReturn

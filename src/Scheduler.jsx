@@ -7,7 +7,7 @@ import Schedule from './components/Schedule.jsx';
 import TourType from './components/TourType.jsx';
 import StartAnOffer from './components/StartAnOffer.jsx';
 import Booker from './components/modalWindow/Booker.jsx';
-import TimeCarousel from './components/modalWindow/timeCarousel/TimeCarousel.jsx';
+import TimeCarousel from './components/modalWindow/TimeCarousel.jsx';
 
 class Scheduler extends React.Component {
   constructor(props) {
@@ -28,11 +28,7 @@ class Scheduler extends React.Component {
     this.showModal = this.showModal.bind(this);
     this.onClose = this.onClose.bind(this);
     this.handleTour = this.handleTour.bind(this);
-    this.setDate = this.setDate.bind(this);
-    this.settourType = this.settourType.bind(this);
-    this.settimeWindow = this.settimeWindow.bind(this);
-    this.setIndex = this.setIndex.bind(this);
-    this.setTimeIndex = this.setTimeIndex.bind(this);
+    this.setStateProp = this.setStateProp.bind(this);
   }
 
   componentDidMount() {
@@ -52,7 +48,6 @@ class Scheduler extends React.Component {
             fullSched[tourDate].push(element.schedule.timeWindow);
           }
         });
-        console.log('On Mount Full Schedule: ', fullSched);
         this.setState({
           data: rawData,
           tourSched: fullSched,
@@ -73,7 +68,6 @@ class Scheduler extends React.Component {
         booking: true
       }
     };
-    console.log(newTour);
     axios({
       method: 'post',
       url: '/house/1',
@@ -106,33 +100,9 @@ class Scheduler extends React.Component {
       });
   }
 
-  setDate(input) {
+  setStateProp(stateName, value) {
     this.setState({
-      tourDate: input
-    });
-  }
-
-  settourType(input) {
-    this.setState({
-      tourType: input
-    });
-  }
-
-  settimeWindow(input) {
-    this.setState({
-      timeWindow: input
-    });
-  }
-
-  setIndex(input) {
-    this.setState({
-      activeIndex: input
-    });
-  }
-
-  setTimeIndex(input) {
-    this.setState({
-      activeTimeIndex: input
+      [stateName]: value
     });
   }
 
@@ -163,15 +133,14 @@ class Scheduler extends React.Component {
             <DateCarousel
               modal={this.state.modal}
               dates={this.state.dates}
-              setDate={this.setDate}
+              setStateProp={this.setStateProp}
               tourDate={this.state.tourDate}
               activeIndex={this.state.activeIndex}
-              setIndex={this.setIndex}
             />
           </div>
           <div>
             <TourType
-              settourType={this.settourType}
+              setStateProp={this.setStateProp}
               tourType={this.state.tourType}
             />
           </div>
@@ -190,22 +159,10 @@ class Scheduler extends React.Component {
       return (
         <div className="lrg-container">
           <Booker
-            modal={this.state.modal}
+            state={this.state}
             onClose={this.onClose}
             handleTour={this.handleTour}
-            dates={this.state.dates}
-            setDate={this.setDate}
-            tourDate={this.state.tourDate}
-            settourType={this.settourType}
-            tourType={this.state.tourType}
-            times={this.state.times}
-            timeWindow={this.state.timeWindow}
-            settimeWindow={this.settimeWindow}
-            activeIndex={this.state.activeIndex}
-            setIndex={this.setIndex}
-            activeTimeIndex={this.state.activeTimeIndex}
-            setTimeIndex={this.setTimeIndex}
-            tourSched={this.state.tourSched}
+            setStateProp={this.setStateProp}
           />
         </div>
       );
