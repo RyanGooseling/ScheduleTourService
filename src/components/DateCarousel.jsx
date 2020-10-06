@@ -40,64 +40,34 @@ const DateCarousel = (props) => {
     align-content: space-between;
   `;
 
-  if (props.modal === false) {
-    return (
-      <div> Go tour this home
-        <br></br>
-        <SlideContainer>
-          <LeftArrow
-            goToPrevSlide={(e) => goToPrevSlide(e)}
+  return (
+    <div> Go tour this home
+      <br></br>
+      <SlideContainer>
+        <LeftArrow
+          goToPrevSlide={(e) => goToPrevSlide(e)}
+          activeIndex={props.activeIndex}
+          openings={props.dates}
+          modal={props.modal}
+        />
+        <div className='inner-Container'>
+          <Slide
             activeIndex={props.activeIndex}
+            tourDate={props.tourDate}
+            setDate={props.setDate}
             openings={props.dates}
             modal={props.modal}
           />
-          <div className='inner-Container'>
-            <Slide
-              activeIndex={props.activeIndex}
-              tourDate={props.tourDate}
-              setDate={props.setDate}
-              openings={props.dates}
-              modal={props.modal}
-            />
-          </div>
-          <RightArrow
-            goToNextSlide={(e) => goToNextSlide(e)}
-            activeIndex={props.activeIndex}
-            openings={props.dates}
-            modal={props.modal}
-          />
-        </SlideContainer>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <SlideContainer>
-          <LeftArrow
-            goToPrevSlide={(e) => goToPrevSlide(e)}
-            activeIndex={props.activeIndex}
-            openings={props.dates}
-            modal={props.modal}
-          />
-          <div className='inner-Container'>
-            <Slide
-              activeIndex={props.activeIndex}
-              tourDate={props.tourDate}
-              setDate={props.setDate}
-              openings={props.dates}
-              modal={props.modal}
-            />
-          </div>
-          <RightArrow
-            goToNextSlide={(e) => goToNextSlide(e)}
-            activeIndex={props.activeIndex}
-            openings={props.dates}
-            modal={props.modal}
-          />
-        </SlideContainer>
-      </div>
-    );
-  }
+        </div>
+        <RightArrow
+          goToNextSlide={(e) => goToNextSlide(e)}
+          activeIndex={props.activeIndex}
+          openings={props.dates}
+          modal={props.modal}
+        />
+      </SlideContainer>
+    </div>
+  );
 };
 
 export default DateCarousel;
