@@ -5,10 +5,18 @@ const RightArrow = (props) => {
 
 
   const renderArrow = function() {
-    if (props.activeIndex < props.openings.length - 2) {
-      return '>';
+    if (props.modal === false) {
+      if (props.activeIndex < props.openings.length - 2) {
+        return '>';
+      } else {
+        return '';
+      }
     } else {
-      return '';
+      if (props.activeIndex < props.openings.length - 3) {
+        return '>';
+      } else {
+        return '';
+      }
     }
   };
 

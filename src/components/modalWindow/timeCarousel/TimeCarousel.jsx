@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import LeftArrowTime from './LeftArrowTime.jsx';
-import RightArrowTime from './RightArrowTime.jsx';
+import LeftArrowModal from '../LeftArrowModal.jsx';
+import RightArrowModal from '../RightArrowModal.jsx';
 import TimeBooker from './TimeBooker.jsx';
 
 const TimeCarousel = (props) => {
@@ -43,7 +43,7 @@ const TimeCarousel = (props) => {
     <div>
       <br></br>
       <SlideContainer>
-        <LeftArrowTime
+        <LeftArrowModal
           goToPrevSlide={(e) => goToPrevTime(e)}
           activeIndex={props.activeTimeIndex}
           openings={props.times}
@@ -58,7 +58,7 @@ const TimeCarousel = (props) => {
             tourDate={props.tourDate}
           />
         </div>
-        <RightArrowTime
+        <RightArrowModal
           goToNextSlide={(e) => goToNextTime(e)}
           activeIndex={props.activeTimeIndex}
           openings={props.times}

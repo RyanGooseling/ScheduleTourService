@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import LeftArrow from './LeftArrow.jsx';
 import RightArrow from './RightArrow.jsx';
 import Slide from './Slide.jsx';
-import LeftArrowModal from './modalWindow/LeftArrowModal.jsx';
-import RightArrowModal from './modalWindow/RightArrowModal.jsx';
 import ModalSlide from './modalWindow/ModalSlide.jsx';
 
 const DateCarousel = (props) => {
@@ -51,6 +49,7 @@ const DateCarousel = (props) => {
             goToPrevSlide={(e) => goToPrevSlide(e)}
             activeIndex={props.activeIndex}
             openings={props.dates}
+            modal={props.modal}
           />
           <div className='inner-Container'>
             <Slide
@@ -64,6 +63,7 @@ const DateCarousel = (props) => {
             goToNextSlide={(e) => goToNextSlide(e)}
             activeIndex={props.activeIndex}
             openings={props.dates}
+            modal={props.modal}
           />
         </SlideContainer>
       </div>
@@ -72,10 +72,11 @@ const DateCarousel = (props) => {
     return (
       <div>
         <SlideContainer>
-          <LeftArrowModal
+          <LeftArrow
             goToPrevSlide={(e) => goToPrevSlide(e)}
             activeIndex={props.activeIndex}
             openings={props.dates}
+            modal={props.modal}
           />
           <div className='inner-Container'>
             <ModalSlide
@@ -85,10 +86,11 @@ const DateCarousel = (props) => {
               openings={props.dates}
             />
           </div>
-          <RightArrowModal
+          <RightArrow
             goToNextSlide={(e) => goToNextSlide(e)}
             activeIndex={props.activeIndex}
             openings={props.dates}
+            modal={props.modal}
           />
         </SlideContainer>
       </div>

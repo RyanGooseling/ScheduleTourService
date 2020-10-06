@@ -4,10 +4,18 @@ import styled from 'styled-components';
 const LeftArrow = (props) => {
 
   const renderArrow = function() {
-    if (props.activeIndex > 1) {
-      return '<';
+    if (props.modal === false) {
+      if (props.activeIndex > 1) {
+        return '<';
+      } else {
+        return '';
+      }
     } else {
-      return '';
+      if (props.activeIndex > 2) {
+        return '<';
+      } else {
+        return '';
+      }
     }
   };
 
