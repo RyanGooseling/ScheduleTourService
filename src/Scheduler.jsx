@@ -35,7 +35,7 @@ class Scheduler extends React.Component {
     console.log('Sending Get Request');
     axios({
       method: 'get',
-      url: '/house/1'
+      url: 'http://localhost:3004/house/1'
     })
       .then((newData) => {
         let rawData = newData.data;
@@ -70,7 +70,7 @@ class Scheduler extends React.Component {
     };
     axios({
       method: 'post',
-      url: '/house/1',
+      url: 'http://localhost:3004/house/1',
       data: newTour
     })
       .then((newData) => {
