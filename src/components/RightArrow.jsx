@@ -22,7 +22,7 @@ const RightArrow = (props) => {
 
   const ForwardArrow = styled.div`
   `;
-  const ForwardArrowDisabled = styled(ForwardArrow)`
+  const ForwardArrowDisabled = `
     opacity: 0.3
   `;
 

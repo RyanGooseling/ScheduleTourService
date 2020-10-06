@@ -19,11 +19,7 @@ const Slide = (props) => {
         newClassName = 'carouselButton unselected';
       }
     } else {
-      if (input === props.tourDate) {
-        newClassName = 'inactive selected';
-      } else {
-        newClassName = 'inactive unselected';
-      }
+      newClassName = 'inactive';
     }
     return newClassName;
   };
