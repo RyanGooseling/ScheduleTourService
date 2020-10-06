@@ -6,7 +6,14 @@ const Slide = (props) => {
   const renderView = function(input) {
     let currentIndex = props.openings.indexOf(input);
     let newClassName;
-    if (currentIndex <= props.activeIndex + 1 && currentIndex >= props.activeIndex - 1) {
+    let adjacentSlides;
+    if (props.modal === false) {
+      adjacentSlides = 1;
+    } else {
+      adjacentSlides = 2;
+    }
+    console.log(adjacentSlides);
+    if (currentIndex <= props.activeIndex + adjacentSlides && currentIndex >= props.activeIndex - adjacentSlides) {
       if (input === props.tourDate) {
         newClassName = 'carouselButton selected';
       } else {

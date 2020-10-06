@@ -57,6 +57,7 @@ const DateCarousel = (props) => {
               tourDate={props.tourDate}
               setDate={props.setDate}
               openings={props.dates}
+              modal={props.modal}
             />
           </div>
           <RightArrow
@@ -79,11 +80,12 @@ const DateCarousel = (props) => {
             modal={props.modal}
           />
           <div className='inner-Container'>
-            <ModalSlide
+            <Slide
               activeIndex={props.activeIndex}
               tourDate={props.tourDate}
               setDate={props.setDate}
               openings={props.dates}
+              modal={props.modal}
             />
           </div>
           <RightArrow
