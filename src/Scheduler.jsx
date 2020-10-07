@@ -23,14 +23,12 @@ class Scheduler extends React.Component {
   }
 
   componentDidMount() {
-    console.log('sending get');
     axios({
       method: 'get',
       url: '/homes/1/schedule'
     })
       .then((newData) => {
         let rawData = newData.data;
-        console.log(rawData);
         let fullSched = {};
         rawData.forEach(element => {
           let tourDate = element.schedule.date;
@@ -44,7 +42,6 @@ class Scheduler extends React.Component {
           data: rawData,
           tourSched: fullSched,
         });
-        console.log(this.state.tourSched);
       })
       .catch((err) => {
         console.log('Error', err);
@@ -55,7 +52,6 @@ class Scheduler extends React.Component {
     this.setState({
       TourType: string
     });
-    console.log(this.state);
   }
 
   showModal() {
