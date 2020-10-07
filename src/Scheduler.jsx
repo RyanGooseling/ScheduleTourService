@@ -73,7 +73,6 @@ class Scheduler extends React.Component {
       data: newTour
     })
       .then((newData) => {
-        console.log('Succesful submission returned');
         let rawData = newData.data;
         let fullSched = {};
         rawData.forEach(element => {

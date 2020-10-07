@@ -1,39 +1,36 @@
 # ScheduleTourService
 
-> Project description
-
-## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+Module used to review and schedule a home tour on Bluefin, a Refin clone.
 
 ## Usage
 
-> Some usage instructions
+The "home" status for this module includes four main sections. From top to bottom they are:
+> The calendar carousel
+> The type of tour
+> The schedule tour button
+> The start an offer button
+
+Upon hitting the "schedule a tour" button a modal window will be rendered with two additional carousels. The each carousel component consists of independent, nested components as follows:
+> the slide
+> the left arrow
+> the right arrow
+
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
 - Node 6.13.0
-- etc
 
 ## Development
+
+The "start an offer" button and the "tour type" sections are self contained and have no nested components.
 
 ### Installing Dependencies
 
 From within the root directory:
 
-```sh
 npm install -g webpack
 npm install
-```
+npm run db:setup
+npm run build
+npm run start
 

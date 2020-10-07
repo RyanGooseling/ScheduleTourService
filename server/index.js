@@ -35,16 +35,19 @@ app.get('/house/:houseId', (req, res) => {
 
 app.post('/house/:houseId', (req, res) => {
   const booking = req.body;
-  Tour.insertOne(booking)
+  Tour.create(booking)
     .then(() => {
-      Tour.find({houseId: req.params.houseId});
-    })
-    .then((tours) => {
-      tours.sort((a, b) => {
-        return a.schedule.date - a.schedule.date;
-      });
-      res.send(tours);
-      res.end();
+      Tour.find({houseId: req.params.houseId})
+        .then((tours) => {
+          tours.sort((a, b) => {
+            return a.schedule.date - a.schedule.date;
+          });
+          res.send(tours);
+          res.end();
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+        });
     })
     .catch((err) => {
       console.log('Error: ', err);

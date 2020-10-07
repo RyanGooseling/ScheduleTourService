@@ -49,7 +49,7 @@ const DateCarousel = (props) => {
           openings={props.dates}
           modal={props.modal}
         />
-        <div>
+        <span>
           <Slide
             activeIndex={props.activeIndex}
             tourDate={props.tourDate}
@@ -57,7 +57,7 @@ const DateCarousel = (props) => {
             openings={props.dates}
             modal={props.modal}
           />
-        </div>
+        </span>
         <RightArrow
           goToNextSlide={(e) => goToNextSlide(e)}
           activeIndex={props.activeIndex}
