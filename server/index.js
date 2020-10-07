@@ -13,11 +13,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('http://localhost:3004/house/:houseId', (req, res) => {
-  console.log('House ID: ', req.params.houseId);
+app.get('/house/:houseId', (req, res) => {
   Tour.find({houseId: req.params.houseId})
     .then((tours) => {
-      console.log('Successful GET');
       let bookedTours = [];
       tours.forEach(tour => {
         if (tour.schedule.booking === true) {
@@ -35,25 +33,18 @@ app.get('http://localhost:3004/house/:houseId', (req, res) => {
     });
 });
 
-app.post('http://localhost:3004/house/:houseId', (req, res) => {
-  console.log('House ID: ', req.params.houseId);
-  // define request body as new booking to be added
+app.post('/house/:houseId', (req, res) => {
   const booking = req.body;
-  // insert new booking into db
-  console.log('New insert of: ', booking);
-  Tour.insertMany(booking)
+  Tour.insertOne(booking)
     .then(() => {
-      console.log('Successful POST insert');
-      // after inserting the new booking, return the db now including new booking
-      Tour.find({houseId: req.params.houseId})
-        .then((tours) => {
-          console.log('Successful return of new db from POST');
-          tours.sort((a, b) => {
-            return a.schedule.date - a.schedule.date;
-          });
-          res.send(tours);
-          res.end();
-        });
+      Tour.find({houseId: req.params.houseId});
+    })
+    .then((tours) => {
+      tours.sort((a, b) => {
+        return a.schedule.date - a.schedule.date;
+      });
+      res.send(tours);
+      res.end();
     })
     .catch((err) => {
       console.log('Error: ', err);

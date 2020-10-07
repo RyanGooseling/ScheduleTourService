@@ -32,7 +32,6 @@ class Scheduler extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Sending Get Request');
     axios({
       method: 'get',
       url: 'http://localhost:3004/house/1'

@@ -36,7 +36,7 @@ const StartAnOffer = (props) => {
     <div>
       <OrSpan> --- OR --- </OrSpan>
       <br></br>
-      <Submit> Start an offer </Submit>
+      <Submit onClick={() => console.log('Offer button submitted')}> Start an offer </Submit>
       <br></br>
       <Subscript> Buy with a Redfin Agent and get cash back</Subscript>
     </div>
