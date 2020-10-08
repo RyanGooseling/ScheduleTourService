@@ -11,9 +11,10 @@ const port = 3004;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use('/homes/:houseId', express.static(__dirname + '/../client/dist'));
 
-app.get('/house/:houseId', (req, res) => {
+app.get('/homes/:houseId/schedule', (req, res) => {
+  console.log(req.params.houseId);
   Tour.find({houseId: req.params.houseId})
     .then((tours) => {
       let bookedTours = [];
@@ -33,7 +34,8 @@ app.get('/house/:houseId', (req, res) => {
     });
 });
 
-app.post('/house/:houseId', (req, res) => {
+app.post('/homes/:houseId/schedule', (req, res) => {
+  console.log(req.params.houseId);
   const booking = req.body;
   Tour.create(booking)
     .then(() => {

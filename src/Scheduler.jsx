@@ -34,9 +34,10 @@ class Scheduler extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: 'http://localhost:3004/house/1'
+      url: '/homes/1/schedule'
     })
       .then((newData) => {
+        console.log(newData.data);
         let rawData = newData.data;
         let fullSched = {};
         rawData.forEach(element => {
@@ -69,10 +70,11 @@ class Scheduler extends React.Component {
     };
     axios({
       method: 'post',
-      url: 'http://localhost:3004/house/1',
+      url: '/homes/1/schedule',
       data: newTour
     })
       .then((newData) => {
+        console.log(newData);
         let rawData = newData.data;
         let fullSched = {};
         rawData.forEach(element => {
@@ -122,8 +124,6 @@ class Scheduler extends React.Component {
       modal: false
     });
   }
-
-
 
   render() {
 
