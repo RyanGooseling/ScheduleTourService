@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/homes/:houseId', express.static(__dirname + '/../client/dist'));
 
 app.get('/homes/:houseId/schedule', (req, res) => {
-  console.log(req.params.houseId);
   Tour.find({houseId: req.params.houseId})
     .then((tours) => {
       let bookedTours = [];
@@ -35,7 +34,6 @@ app.get('/homes/:houseId/schedule', (req, res) => {
 });
 
 app.post('/homes/:houseId/schedule', (req, res) => {
-  console.log(req.params.houseId);
   const booking = req.body;
   Tour.create(booking)
     .then(() => {

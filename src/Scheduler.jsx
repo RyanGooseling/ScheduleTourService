@@ -37,7 +37,6 @@ class Scheduler extends React.Component {
       url: '/homes/1/schedule'
     })
       .then((newData) => {
-        console.log(newData.data);
         let rawData = newData.data;
         let fullSched = {};
         rawData.forEach(element => {
@@ -74,7 +73,6 @@ class Scheduler extends React.Component {
       data: newTour
     })
       .then((newData) => {
-        console.log(newData);
         let rawData = newData.data;
         let fullSched = {};
         rawData.forEach(element => {
