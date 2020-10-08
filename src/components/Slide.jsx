@@ -33,10 +33,10 @@ const Slide = (props) => {
   const DayTile = styled.div`
     vertical-align: center;
     margin: 12px;
-    font-size: 24px
+    font-size: 24px;
   `;
   const MonthTile = styled.div`
-    vertical-align: baseline
+    vertical-align: baseline;
   `;
 
   return (

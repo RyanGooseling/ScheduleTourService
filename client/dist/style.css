@@ -7,13 +7,13 @@ body {
   display: block
 }
 
-.carousel {
+/* .carousel {
   display: inline-flex;
   justify-content: center;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
   margin: 0px
-}
+} */
 
 .carouselButton {
   display: inline-block;
@@ -26,26 +26,6 @@ body {
   margin-right: 0.25rem;
   margin-left: 0.25rem;
   box-sizing: border-box;
-  border-radius: 2px 2px 2px 2px;
-  cursor: pointer;
-}
-
-
-
-.carouselButtons-Time {
-  display: inline-block;
-  font-size: xx-small;
-  text-align: center;
-  justify-content: center;
-  width: 108px;
-  height: 60px;
-  padding: 21px 9px 21px 9px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
   border-radius: 2px 2px 2px 2px;
   cursor: pointer;
 }
