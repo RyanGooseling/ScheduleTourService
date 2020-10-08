@@ -34,7 +34,7 @@ class Scheduler extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: '/homes/1/schedule'
+      url: `/homes/${this.props.houseId}/schedule`
     })
       .then((newData) => {
         let rawData = newData.data;
@@ -69,7 +69,7 @@ class Scheduler extends React.Component {
     };
     axios({
       method: 'post',
-      url: '/homes/1/schedule',
+      url: `/homes/${this.props.houseId}/schedule`,
       data: newTour
     })
       .then((newData) => {
