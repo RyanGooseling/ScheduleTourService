@@ -19,12 +19,12 @@ const Booker = (props) => {
     visibility: visible;
   `;
 
-  const Content = styled.div`
-    padding: 1rem;
+  const CancelSubmitBox = styled.div`
+    display: flex;
   `;
 
   const SubmitReturn = styled.button`
-    width: 100%;
+    flex-grow: 3;
     color: white;
     background-color: blue;
     position: relative;
@@ -33,10 +33,12 @@ const Booker = (props) => {
     height: 40px;
     padding: 12px 1.5rem;
     border-radius: 2px 2px 2px 2px;
-
     &:hover {
       background-color: cornflowerblue;
     }
+  `;
+  const CancelReturn = styled(SubmitReturn)`
+    flex-grow: 1;
   `;
 
   if (props.state.modal) {
@@ -64,13 +66,18 @@ const Booker = (props) => {
           tourSched={props.state.tourSched}
           tourDate={props.state.tourDate}
         />
-        <div class="actions">
+        <CancelSubmitBox>
+          <CancelReturn
+            onClick={() => props.showModal()}
+          >
+            Cancel and Return
+          </CancelReturn>
           <SubmitReturn
             onClick={() => props.handleTour()}
           >
             Book and Return
           </SubmitReturn>
-        </div>
+        </CancelSubmitBox>
       </Modal>
     );
   } else {
