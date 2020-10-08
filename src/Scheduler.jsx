@@ -34,7 +34,7 @@ class Scheduler extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: '/homes/1/schedule'
+      url: `/homes/${this.props.houseId}/schedule`
     })
       .then((newData) => {
         let rawData = newData.data;
@@ -69,7 +69,7 @@ class Scheduler extends React.Component {
     };
     axios({
       method: 'post',
-      url: '/homes/1/schedule',
+      url: `/homes/${this.props.houseId}/schedule`,
       data: newTour
     })
       .then((newData) => {
@@ -124,11 +124,9 @@ class Scheduler extends React.Component {
   }
 
   render() {
-
     const SmContainer = styled.div`
       width: 313px;
     `;
-
     const LrgContainer = styled.div`
       width: 618px;
     `;
@@ -170,6 +168,7 @@ class Scheduler extends React.Component {
             onClose={this.onClose}
             handleTour={this.handleTour}
             setStateProp={this.setStateProp}
+            showModal={this.showModal}
           />
         </LrgContainer>
       );

@@ -32,16 +32,16 @@ const TourType = (props) => {
     &:hover {
       border: 2px solid;
     }
-    `;
+  `;
   const TourVideo = styled(TourPerson)`
     width: 168px;
-    `;
+  `;
   const TourVideoSelected = styled(TourVideo)`
     border: 2px solid;
     &:hover {
       border: 2px solid;
     }
-    `;
+  `;
 
   if (props.tourType === 'In-person') {
     return (

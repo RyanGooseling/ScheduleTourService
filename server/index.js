@@ -56,5 +56,5 @@ app.post('/homes/:houseId/schedule', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Bluefin listening at http://localhost:${port}`);
+  console.log(`Bluefin listening at http://localhost:${port}/homes/1`);
 });
