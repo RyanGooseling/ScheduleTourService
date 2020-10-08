@@ -3,55 +3,68 @@
 body {
   font-family: 'PT Serif', sans-serif;
   margin: 0px;
-  width: 313px;
   opacity: 1;
   display: block
 }
 
-
-/* .carousel {
+.carousel {
+  display: inline-flex;
+  justify-content: center;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
   margin: 0px
-} */
+}
 
 .carouselButton {
-  display: inline-flex;
+  display: inline-block;
   text-align: center;
   justify-content: center;
-  width: 88.33px;
-  height: 88.33px;
+  width: 86.33px;
+  height: 86.33px;
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-right: 0.25rem;
   margin-left: 0.25rem;
   box-sizing: border-box;
   border-radius: 2px 2px 2px 2px;
+  cursor: pointer;
+}
+
+
+
+.carouselButtons-Time {
+  display: inline-block;
+  font-size: xx-small;
+  text-align: center;
+  justify-content: center;
+  width: 108px;
+  height: 60px;
+  padding: 21px 9px 21px 9px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px 2px 2px 2px;
+  cursor: pointer;
 }
 
 .inactive {
   display: none;
 }
-
 .selected {
-  border: 2px solid
+  border: 2px solid;
+  box-shadow: 0 3px 4px 0 #ccc;
 }
 .unselected {
-  border: 1px solid;
+  border: 1px solid #ccc;
   border-radius: 2px 2px 2px 2px
 }
-
-.submit {
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-  display: inline-block;
-  height: 40px;
-  padding: 12px 1.5rem;
-  border-radius: 2px 2px 2px 2px
+.unselected:hover {
+  border: 1px solid darkgrey;
 }
-
-.subscript {
-  text-align: left;
-  font-size: 12px;
+.disabled {
+  opacity: 0.3;
+  cursor: unset;
 }

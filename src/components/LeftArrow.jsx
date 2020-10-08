@@ -4,17 +4,31 @@ import styled from 'styled-components';
 const LeftArrow = (props) => {
 
   const renderArrow = function() {
-    if (props.activeIndex > props.fakeDates[0] + 1) {
-      return '<';
+    if (props.modal === false) {
+      if (props.activeIndex > 1) {
+        return '<';
+      } else {
+        return '';
+      }
     } else {
-      return '';
+      if (props.activeIndex > 2) {
+        return '<';
+      } else {
+        return '';
+      }
     }
   };
 
+  const BackArrow = styled.div`
+  `;
+  const BackArrowDisabled = styled(BackArrow)`
+    opacity: 0.3
+  `;
+
   return (
-    <div className= 'backArrow' onClick={props.goToPrevSlide}>
+    <BackArrow onClick={props.goToPrevSlide}>
       <i>{renderArrow()}</i>
-    </div>
+    </BackArrow>
   );
 };
 

@@ -6,34 +6,30 @@ import Slide from './Slide.jsx';
 
 const DateCarousel = (props) => {
 
-  const [fakeDates, setDates] = useState([1, 2, 3, 4, 5, 6, 7]);
-  const [activeIndex, setIndex] = useState(fakeDates[1]);
-  const [tourDate, setDate] = useState(fakeDates[1]);
-
   const goToPrevSlide = function(e) {
     e.preventDefault();
-    let index = activeIndex;
-    let slides = fakeDates;
+    let index = props.activeIndex;
+    let slides = props.dates;
     let slidesLength = slides.length - 1;
     if (index < 1) {
       index = slidesLength;
     } else {
       index--;
     }
-    setIndex(index);
+    props.setStateProp('activeIndex', index);
   };
 
   const goToNextSlide = function(e) {
     e.preventDefault();
-    let index = activeIndex;
-    let slides = fakeDates;
+    let index = props.activeIndex;
+    let slides = props.dates;
     let slidesLength = slides.length - 1;
     if (index === slidesLength) {
       index = 0;
     } else {
       index++;
     }
-    setIndex(index);
+    props.setStateProp('activeIndex', index);
   };
 
   const SlideContainer = styled.div`
@@ -49,21 +45,24 @@ const DateCarousel = (props) => {
       <SlideContainer>
         <LeftArrow
           goToPrevSlide={(e) => goToPrevSlide(e)}
-          activeIndex={activeIndex}
-          fakeDates={fakeDates}
+          activeIndex={props.activeIndex}
+          openings={props.dates}
+          modal={props.modal}
         />
         <span>
           <Slide
-            activeIndex={activeIndex}
-            tourDate={tourDate}
-            setDate={setDate}
-            fakeDates={fakeDates}
+            activeIndex={props.activeIndex}
+            tourDate={props.tourDate}
+            setStateProp={props.setStateProp}
+            openings={props.dates}
+            modal={props.modal}
           />
         </span>
         <RightArrow
           goToNextSlide={(e) => goToNextSlide(e)}
-          activeIndex={activeIndex}
-          fakeDates={fakeDates}
+          activeIndex={props.activeIndex}
+          openings={props.dates}
+          modal={props.modal}
         />
       </SlideContainer>
     </div>

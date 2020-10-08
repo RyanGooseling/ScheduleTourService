@@ -11,9 +11,9 @@ const port = 3004;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use('/homes/:houseId', express.static(__dirname + '/../client/dist'));
 
-app.get('/house/:houseId', (req, res) => {
+app.get('/homes/:houseId/schedule', (req, res) => {
   Tour.find({houseId: req.params.houseId})
     .then((tours) => {
       let bookedTours = [];
@@ -33,18 +33,21 @@ app.get('/house/:houseId', (req, res) => {
     });
 });
 
-app.post('/house/:houseId', (req, res) => {
+app.post('/homes/:houseId/schedule', (req, res) => {
   const booking = req.body;
-  Tour.insertOne(booking)
+  Tour.create(booking)
     .then(() => {
-      Tour.find({houseId: req.params.houseId});
-    })
-    .then((tours) => {
-      tours.sort((a, b) => {
-        return a.schedule.date - a.schedule.date;
-      });
-      res.send(tours);
-      res.end();
+      Tour.find({houseId: req.params.houseId})
+        .then((tours) => {
+          tours.sort((a, b) => {
+            return a.schedule.date - a.schedule.date;
+          });
+          res.send(tours);
+          res.end();
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+        });
     })
     .catch((err) => {
       console.log('Error: ', err);

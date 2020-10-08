@@ -3,18 +3,33 @@ import styled from 'styled-components';
 
 const RightArrow = (props) => {
 
+
   const renderArrow = function() {
-    if (props.activeIndex < props.fakeDates[props.fakeDates.length - 1] - 1) {
-      return '>';
+    if (props.modal === false) {
+      if (props.activeIndex < props.openings.length - 2) {
+        return '>';
+      } else {
+        return '';
+      }
     } else {
-      return '';
+      if (props.activeIndex < props.openings.length - 3) {
+        return '>';
+      } else {
+        return '';
+      }
     }
   };
 
+  const ForwardArrow = styled.div`
+  `;
+  const ForwardArrowDisabled = `
+    opacity: 0.3
+  `;
+
   return (
-    <div className= 'forwardArrow' onClick={props.goToNextSlide}>
+    <ForwardArrow onClick={props.goToNextSlide}>
       <i>{renderArrow()}</i>
-    </div>
+    </ForwardArrow>
   );
 };
 
