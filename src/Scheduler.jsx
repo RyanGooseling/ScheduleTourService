@@ -126,11 +126,11 @@ class Scheduler extends React.Component {
   render() {
 
     const SmContainer = styled.div`
-      width: 313px
+      width: 313px;
     `;
 
     const LrgContainer = styled.div`
-      width: 618px
+      width: 618px;
     `;
 
     if (!this.state.modal) {
