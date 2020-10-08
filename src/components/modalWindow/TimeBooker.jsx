@@ -42,10 +42,8 @@ const TimeBooker = (props) => {
     let currentDate = [props.tourDate + 'T00:00:00.000Z'];
     let currentIndex = props.openings.indexOf(input);
     let newClassName;
-    console.log(props.tourSched);
-    console.log(props.tourSched[currentDate]);
     if (currentIndex <= props.activeIndex + 2 && currentIndex >= props.activeIndex - 2) {
-      if (props.tourSched[currentDate].includes(input)) {
+      if (props.tourSched[currentDate] !== undefined && props.tourSched[currentDate].includes(input)) {
         newClassName = 'carouselButtons-Time disabled';
       } else if (input === props.timeWindow) {
         newClassName = 'carouselButtons-Time selected';
