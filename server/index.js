@@ -1,13 +1,15 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
 
 const Tour = require('../mongo-db/Tour.js');
 const db = require('../mongo-db/index.js');
 
 const app = express();
 const port = 3004;
-const IP = '54.193.202.190';
+const currentIP = process.env.IP;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -57,5 +59,5 @@ app.post('/homes/:houseId/schedule', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Bluefin listening at http://${IP}:${port}/homes/1`);
+  console.log(`Bluefin listening at http://${currentIP}:${port}/homes/1`);
 });
