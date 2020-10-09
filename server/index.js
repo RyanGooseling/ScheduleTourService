@@ -6,7 +6,7 @@ const Tour = require('../mongo-db/Tour.js');
 const db = require('../mongo-db/index.js');
 
 const app = express();
-const port = 3004;
+const port = '18.144.6.166';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
