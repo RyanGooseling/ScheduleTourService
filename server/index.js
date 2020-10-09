@@ -6,7 +6,8 @@ const Tour = require('../mongo-db/Tour.js');
 const db = require('../mongo-db/index.js');
 
 const app = express();
-const port = '18.144.6.166';
+const port = 3004;
+const IP = '54.193.202.190';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -56,5 +57,5 @@ app.post('/homes/:houseId/schedule', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Bluefin listening at http://localhost:${port}/homes/1`);
+  console.log(`Bluefin listening at http://${IP}:${port}/homes/1`);
 });
