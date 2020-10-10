@@ -1,0 +1,62 @@
+{
+  "name": "hrr48-front-end-capstone",
+  "description": "> Project description",
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "scripts": {
+    "start": "nodemon ./server/index.js",
+    "dev": "npm run compile && npm run build",
+    "build": "webpack --config webpack.config.js --watch",
+    "compile": "babel src -d lib",
+    "db:setup": "node mongo-db/seed.js",
+    "test": "jest --runInBand --detectOpenHandles",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.31",
+    "@fortawesome/free-solid-svg-icons": "^5.15.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "axios": "^0.20.0",
+    "babel-loader": "^8.1.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7",
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.7",
+    "sinon": "^9.1.0",
+    "styled-components": "^5.2.0",
+    "supertest": "^5.0.0",
+    "webpack": "^4.44.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-plugin-styled-components": "^1.11.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "jest": "^26.4.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "version": "1.0.0",
+  "main": "./server/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackreactor/hrr48-front-end-capstone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hackreactor/hrr48-front-end-capstone/issues"
+  },
+  "homepage": "https://github.com/hackreactor/hrr48-front-end-capstone#readme"
+}
