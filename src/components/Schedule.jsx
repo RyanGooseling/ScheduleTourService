@@ -11,7 +11,7 @@ const Schedule = (props) => {
   const SubmitSchedule = styled.button`
     width: 100%;
     color: white;
-    background-color: blue;
+    background-color: red;
     position: relative;
     box-sizing: border-box;
     display: inline-block;
@@ -21,7 +21,7 @@ const Schedule = (props) => {
     border: 1px solid #ccc;
 
     &:hover {
-      background-color: cornflowerblue;
+      background-color: lightcoral;
     }
     `;
 
