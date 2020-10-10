@@ -26,7 +26,7 @@ const Booker = (props) => {
   const SubmitReturn = styled.button`
     flex-grow: 3;
     color: white;
-    background-color: blue;
+    background-color: red;
     position: relative;
     box-sizing: border-box;
     display: inline-block;
@@ -34,7 +34,7 @@ const Booker = (props) => {
     padding: 12px 1.5rem;
     border-radius: 2px 2px 2px 2px;
     &:hover {
-      background-color: cornflowerblue;
+      background-color: lightcoral;
     }
   `;
   const CancelReturn = styled(SubmitReturn)`
