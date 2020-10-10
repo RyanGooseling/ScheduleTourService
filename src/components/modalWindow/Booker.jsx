@@ -9,9 +9,9 @@ const Booker = (props) => {
   const Modal = styled.div`
     width: 100% px;
     height: 100% px;
-    padding: 10px;
+    padding: 6px;
     background: white;
-    border: 5px solid #ccc;
+    border: 3px solid #ccc;
     transition: 1.1s ease-out;
     box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
     filter: blur(0);

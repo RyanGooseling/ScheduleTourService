@@ -129,8 +129,6 @@ class Scheduler extends React.Component {
     `;
     const LrgContainer = styled.div`
       width: 618px;
-      border: 5px;
-      padding: 5px;
       position:fixed;
       background: white;
       height: auto;
