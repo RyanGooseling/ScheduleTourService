@@ -21,8 +21,9 @@ const RightArrow = (props) => {
   };
 
   const ForwardArrow = styled.div`
+    cursor: pointer;
   `;
-  const ForwardArrowDisabled = `
+  const ForwardArrowDisabled = styled(ForwardArrow)`
     opacity: 0.3
   `;
 

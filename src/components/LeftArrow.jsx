@@ -20,6 +20,7 @@ const LeftArrow = (props) => {
   };
 
   const BackArrow = styled.div`
+  cursor: pointer;
   `;
   const BackArrowDisabled = styled(BackArrow)`
     opacity: 0.3;
